@@ -22,13 +22,13 @@ You can modify this part to better optimize your personal homepage, Locate the s
 
 ```html
 <head>
-    <title>Yizhe Xie's Homepage</title>
+    <title>Xinyue Zhang's Homepage</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Yizhe Xie">
-    <meta name="keywords" content="Yizhe Xie, Yizhe Xie MUC, Yizhe Xie Artificial Intelligence">
+    <meta name="author" content="Xinyue Zhang">
+    <meta name="keywords" content="Xinyue Zhang, Xinyue Zhang MUC, Xinyue Zhang Artificial Intelligence">
     <meta name="robots" content="index,follow">
-    <meta name="description" content="Homepage of Yizhe Xie">
+    <meta name="description" content="Homepage of Xinyue Zhang">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen,print" href="css/style.css" />
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
@@ -47,7 +47,7 @@ You can modify this part to better optimize your personal homepage, Locate the s
 </head>
 ```
 
-First, you can modify the `<title>` tag by replacing it with your own name or the title of your homepage. For example, change `Yizhe Xie's Homepage` to `[Your Name]'s Homepage`. Next, for the `<meta>` tags, which contain metadata for the page, you can update the `author`, `description`, and `keywords` based on your content. Replace `Yizhe Xie` with your own name, update `Homepage of Yizhe Xie` with a short description of your homepage, and adjust the `keywords` to reflect the main topics of your site.
+First, you can modify the `<title>` tag by replacing it with your own name or the title of your homepage. For example, change `Xinyue Zhang's Homepage` to `[Your Name]'s Homepage`. Next, for the `<meta>` tags, which contain metadata for the page, you can update the `author`, `description`, and `keywords` based on your content. Replace `Xinyue Zhang` with your own name, update `Homepage of Xinyue Zhang` with a short description of your homepage, and adjust the `keywords` to reflect the main topics of your site.
 
 For fonts and styles, you can keep the Google font `Lato` or replace it with a font of your choice. In the stylesheet links, you can customize or replace `style.css` and `Bootstrap` files as needed. After that, you can update the icon path in the `<link rel="icon">` tag with your own favicon file. Finally, if there are external scripts you don’t need, you can remove them or replace them with other JavaScript files you want to load.
 
@@ -57,7 +57,7 @@ Locate the section containing personal information such as name, email, and univ
 
 ```html
 <h1>
-    Yizhe Xie
+    Xinyue Zhang
     <span style="font-family: STFangsong; font-size: 20pt; position: relative; top: -4px;">
       (谢奕哲)
     </span>

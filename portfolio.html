@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Xinyue Zhang" />
+  <meta name="description" content="Portfolio of Xinyue Zhang: presentation design, research visualization, and video editing works." />
+  <title>Xinyue Zhang | Portfolio</title>
+  <link rel="icon" type="image/png" href="./images/logos/github.png" />
+  <style>
+    :root {
+      --ink: #172b3f;
+      --muted: #52616f;
+      --line: #d9e0e6;
+      --accent: #127484;
+      --paper: #ffffff;
+      --wash: #f6f8fa;
+      --soft: #e7f3f5;
+      --gold: #a66b00;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--wash);
+      font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .lang-switch button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 7px 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lang-switch button.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .hero {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 34px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 850px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .stat {
+      min-height: 96px;
+      padding: 15px;
+      border: 1px solid #cfe6ea;
+      border-radius: 8px;
+      background: var(--soft);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 26px;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      margin-top: 28px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 26px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      font-size: 24px;
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .card img,
+    .card video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #edf1f4;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .card-body {
+      padding: 14px;
+    }
+
+    .meta {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .ppt-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .ppt-list li {
+      min-height: 116px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .tags {
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 0 6px 6px 0;
+      padding: 3px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--wash);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .note {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-left: 4px solid var(--accent);
+      background: var(--soft);
+      color: var(--muted);
+      border-radius: 4px;
+    }
+
+    .footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    [data-lang="en"] {
+      display: none;
+    }
+
+    body.lang-en [data-lang="zh"] {
+      display: none;
+    }
+
+    body.lang-en [data-lang="en"] {
+      display: block;
+    }
+
+    body.lang-en span[data-lang="en"],
+    body.lang-en a[data-lang="en"] {
+      display: inline;
+    }
+
+    body.lang-en li[data-lang="en"] {
+      display: list-item;
+    }
+
+    body.lang-zh li[data-lang="zh"] {
+      display: list-item;
+    }
+
+    @media (max-width: 860px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .stats,
+      .grid,
+      .ppt-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      section {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body class="lang-zh">
+  <main class="page">
+    <div class="topbar">
+      <nav class="nav" aria-label="Portfolio navigation">
+        <a href="./index.html" data-lang="zh">返回主页</a>
+        <a href="#presentations" data-lang="zh">PPT</a>
+        <a href="#visualizations" data-lang="zh">科研绘图</a>
+        <a href="#videos" data-lang="zh">视频剪辑</a>
+        <a href="./index.html" data-lang="en">Home</a>
+        <a href="#presentations" data-lang="en">Presentations</a>
+        <a href="#visualizations" data-lang="en">Visualizations</a>
+        <a href="#videos" data-lang="en">Videos</a>
+      </nav>
+      <div class="lang-switch" aria-label="Language switch">
+        <button type="button" class="active" data-set-lang="zh">中文</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+    </div>
+
+    <header class="hero">
+      <p class="eyebrow" data-lang="zh">Portfolio</p>
+      <p class="eyebrow" data-lang="en">Portfolio</p>
+      <h1 data-lang="zh">张心悦作品集</h1>
+      <h1 data-lang="en">Xinyue Zhang Portfolio</h1>
+      <p class="lead" data-lang="zh">这里整理展示我的汇报设计、科研绘图和视频剪辑作品。内容来自本地作品集归档，并经过压缩筛选，便于在线浏览。</p>
+      <p class="lead" data-lang="en">A curated collection of my presentation design, research visualization, and video editing works, optimized from the local archive for fast online browsing.</p>
+      <div class="stats">
+        <div class="stat">
+          <strong>8</strong>
+          <span data-lang="zh">份 PPT 作品归档</span>
+          <span data-lang="en">presentation decks archived</span>
+        </div>
+        <div class="stat">
+          <strong>155</strong>
+          <span data-lang="zh">张科研/课程绘图</span>
+          <span data-lang="en">research and coursework figures</span>
+        </div>
+        <div class="stat">
+          <strong>4</strong>
+          <span data-lang="zh">个视频剪辑项目</span>
+          <span data-lang="en">video editing projects</span>
+        </div>
+        <div class="stat">
+          <strong>18</strong>
+          <span data-lang="zh">张精选图像在线展示</span>
+          <span data-lang="en">featured visuals online</span>
+        </div>
+      </div>
+    </header>
+
+    <section id="presentations">
+      <h2 data-lang="zh">PPT 作品</h2>
+      <h2 data-lang="en">Presentation Design</h2>
+      <ul class="ppt-list">
+        <li>
+          <span class="meta">Innovation Competition</span>
+          <h3 data-lang="zh">创赛 PPT</h3>
+          <h3 data-lang="en">Innovation Competition Pitch Deck</h3>
+          <p data-lang="zh">面向竞赛路演的项目叙事、商业逻辑、视觉系统和答辩节奏设计。</p>
+          <p data-lang="en">Pitch-oriented narrative design with business logic, visual structure, and defense pacing.</p>
+          <div class="tags"><span class="tag">281.4 MB</span><span class="tag">Pitch</span><span class="tag">Design</span></div>
+        </li>
+        <li>
+          <span class="meta">Scholarship Defense</span>
+          <h3 data-lang="zh">小米奖学金答辩 PPT</h3>
+          <h3 data-lang="en">Xiaomi Scholarship Defense Deck</h3>
+          <p data-lang="zh">围绕学业、科研、竞赛与社会实践组织个人成长叙事。</p>
+          <p data-lang="en">A personal academic narrative across coursework, research, competitions, and practice.</p>
+          <div class="tags"><span class="tag">64.5 MB</span><span class="tag">Defense</span><span class="tag">Profile</span></div>
+        </li>
+        <li>
+          <span class="meta">Research Talk</span>
+          <h3 data-lang="zh">组会论文分享汇报 PPT</h3>
+          <h3 data-lang="en">Research Group Paper Sharing Deck</h3>
+          <p data-lang="zh">用于组会论文拆解，强调研究问题、方法结构、实验结论和可复用表达。</p>
+          <p data-lang="en">A paper-reading deck focused on research questions, method structure, results, and reusable explanation.</p>
+          <div class="tags"><span class="tag">6.0 MB</span><span class="tag">Research</span><span class="tag">Reading</span></div>
+        </li>
+        <li>
+          <span class="meta">Coursework</span>
+          <h3 data-lang="zh">AI 气象汇报 / Hadoop 理论与实验 / 数据可视化</h3>
+          <h3 data-lang="en">AI Meteorology, Hadoop, and Data Visualization Decks</h3>
+          <p data-lang="zh">课程汇报与技术展示，覆盖人工智能气象预测、大数据系统和可视化分析。</p>
+          <p data-lang="en">Course and technical presentations covering AI meteorology, big-data systems, and visualization analysis.</p>
+          <div class="tags"><span class="tag">Coursework</span><span class="tag">AI</span><span class="tag">Data</span></div>
+        </li>
+      </ul>
+      <p class="note" data-lang="zh">原始 PPT 文件体积较大，当前线上版本展示主题概览和精选视觉资产；如需完整文件，可从本地归档或后续接入云盘/Release 下载。</p>
+      <p class="note" data-lang="en">The original PPT files are large, so this online version shows project summaries and selected visuals. Full files can be linked later through cloud storage or GitHub Releases.</p>
+    </section>
+
+    <section id="visualizations">
+      <h2 data-lang="zh">科研绘图精选</h2>
+      <h2 data-lang="en">Selected Research Visualizations</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="assets/portfolio/images/mcm-model-framework.webp" alt="MCM model framework" />
+          <div class="card-body">
+            <span class="meta">MCM 2025</span>
+            <h3 data-lang="zh">有机农业模型框架</h3>
+            <h3 data-lang="en">Organic Agriculture Model Framework</h3>
+            <p data-lang="zh">用于美赛建模论文的系统框架图。</p>
+            <p data-lang="en">A system framework figure for a mathematical modeling paper.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/mcm-food-network.webp" alt="Food chain network" />
+          <div class="card-body">
+            <span class="meta">Network</span>
+            <h3 data-lang="zh">食物链网络</h3>
+            <h3 data-lang="en">Food Chain Network</h3>
+            <p data-lang="zh">展示生态系统中多角色交互关系。</p>
+            <p data-lang="en">A network diagram of multi-role ecosystem interactions.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/mcm-timeseries.webp" alt="Time series figure" />
+          <div class="card-body">
+            <span class="meta">Simulation</span>
+            <h3 data-lang="zh">时间序列模拟</h3>
+            <h3 data-lang="en">Time-Series Simulation</h3>
+            <p data-lang="zh">模型动态过程与变量变化趋势展示。</p>
+            <p data-lang="en">Dynamic model behavior and variable trend visualization.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/cums-flow.webp" alt="Competition process flow" />
+          <div class="card-body">
+            <span class="meta">Modeling</span>
+            <h3 data-lang="zh">国赛总体流程</h3>
+            <h3 data-lang="en">Modeling Workflow</h3>
+            <p data-lang="zh">从数据处理到模型求解的整体流程表达。</p>
+            <p data-lang="en">An end-to-end workflow from data processing to model solving.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/cums-data-class.webp" alt="Data class diagram" />
+          <div class="card-body">
+            <span class="meta">Data</span>
+            <h3 data-lang="zh">数据类图</h3>
+            <h3 data-lang="en">Data Class Diagram</h3>
+            <p data-lang="zh">用结构化图形梳理数据实体和关系。</p>
+            <p data-lang="en">A structured diagram for data entities and relationships.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/cums-crop-area.webp" alt="Crop area chart" />
+          <div class="card-body">
+            <span class="meta">Optimization</span>
+            <h3 data-lang="zh">农作物种植面积分析</h3>
+            <h3 data-lang="en">Crop Area Analysis</h3>
+            <p data-lang="zh">用于农业优化建模情境的结果可视化。</p>
+            <p data-lang="en">Result visualization for an agricultural optimization scenario.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/medical-project-flow.webp" alt="Medical image project flow" />
+          <div class="card-body">
+            <span class="meta">Medical AI</span>
+            <h3 data-lang="zh">医学影像项目流程</h3>
+            <h3 data-lang="en">Medical Imaging Project Flow</h3>
+            <p data-lang="zh">医学影像分析任务的实验流程表达。</p>
+            <p data-lang="en">A workflow figure for medical image analysis experiments.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/medical-heatmap.webp" alt="Medical AI heatmap" />
+          <div class="card-body">
+            <span class="meta">Heatmap</span>
+            <h3 data-lang="zh">医学 AI 热力图</h3>
+            <h3 data-lang="en">Medical AI Heatmap</h3>
+            <p data-lang="zh">用于解释模型响应和区域关注。</p>
+            <p data-lang="en">A visualization for model response and regional attention.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/geo-whcns.webp" alt="Geography diagram" />
+          <div class="card-body">
+            <span class="meta">Geography</span>
+            <h3 data-lang="zh">地理模型图</h3>
+            <h3 data-lang="en">Geography Model Diagram</h3>
+            <p data-lang="zh">地理主题课程与模型展示图。</p>
+            <p data-lang="en">A geographic model figure for coursework and presentation.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/gaokao-regional-heatmap.webp" alt="Regional activity heatmap" />
+          <div class="card-body">
+            <span class="meta">Social Data</span>
+            <h3 data-lang="zh">区域活动热力图</h3>
+            <h3 data-lang="en">Regional Activity Heatmap</h3>
+            <p data-lang="zh">社会数据区域分布和活动强度可视化。</p>
+            <p data-lang="en">Regional distribution and activity intensity visualization.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/sentiment-analysis.webp" alt="Sentiment analysis chart" />
+          <div class="card-body">
+            <span class="meta">NLP</span>
+            <h3 data-lang="zh">情感分析图表</h3>
+            <h3 data-lang="en">Sentiment Analysis Chart</h3>
+            <p data-lang="zh">围绕文本数据的情绪分布与细分分析。</p>
+            <p data-lang="en">Sentiment distribution and detailed analysis for text data.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/ct-cup-swot.webp" alt="SWOT visual" />
+          <div class="card-body">
+            <span class="meta">Market Research</span>
+            <h3 data-lang="zh">正大杯 SWOT 图</h3>
+            <h3 data-lang="en">Market Research SWOT</h3>
+            <p data-lang="zh">市场调查项目中的策略分析视觉。</p>
+            <p data-lang="en">A strategy analysis visual for market research work.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="videos">
+      <h2 data-lang="zh">视频剪辑作品</h2>
+      <h2 data-lang="en">Video Editing</h2>
+      <div class="grid">
+        <article class="card">
+          <video controls preload="metadata" poster="assets/portfolio/videos/ican-poster.jpg">
+            <source src="assets/portfolio/videos/ican-preview.mp4" type="video/mp4" />
+          </video>
+          <div class="card-body">
+            <span class="meta">iCAN</span>
+            <h3 data-lang="zh">iCAN 视频</h3>
+            <h3 data-lang="en">iCAN Video</h3>
+            <p data-lang="zh">竞赛/项目展示类短片预览。</p>
+            <p data-lang="en">A preview clip for a competition and project showcase video.</p>
+          </div>
+        </article>
+        <article class="card">
+          <video controls preload="metadata" poster="assets/portfolio/videos/digital-china-poster.jpg">
+            <source src="assets/portfolio/videos/digital-china-preview.mp4" type="video/mp4" />
+          </video>
+          <div class="card-body">
+            <span class="meta">Digital China</span>
+            <h3 data-lang="zh">数字中国</h3>
+            <h3 data-lang="en">Digital China</h3>
+            <p data-lang="zh">主题叙事视频剪辑预览。</p>
+            <p data-lang="en">A thematic narrative video editing preview.</p>
+          </div>
+        </article>
+        <article class="card">
+          <video controls preload="metadata" poster="assets/portfolio/videos/pipa-poster.jpg">
+            <source src="assets/portfolio/videos/pipa-preview.mp4" type="video/mp4" />
+          </video>
+          <div class="card-body">
+            <span class="meta">Culture</span>
+            <h3 data-lang="zh">琵琶行</h3>
+            <h3 data-lang="en">Pipa Xing</h3>
+            <p data-lang="zh">文化主题视频剪辑预览。</p>
+            <p data-lang="en">A culture-themed video editing preview.</p>
+          </div>
+        </article>
+        <article class="card">
+          <video controls preload="metadata" poster="assets/portfolio/videos/social-practice-poster.jpg">
+            <source src="assets/portfolio/videos/social-practice-preview.mp4" type="video/mp4" />
+          </video>
+          <div class="card-body">
+            <span class="meta">Practice</span>
+            <h3 data-lang="zh">社会实践</h3>
+            <h3 data-lang="en">Social Practice</h3>
+            <p data-lang="zh">社会实践活动记录与剪辑预览。</p>
+            <p data-lang="en">A documentary-style preview for social practice activities.</p>
+          </div>
+        </article>
+      </div>
+      <p class="note" data-lang="zh">视频展示为 18 秒压缩预览片段，保留作品风格与剪辑节奏，同时控制网页加载体积。</p>
+      <p class="note" data-lang="en">Each video is an 18-second compressed preview that preserves the editing style while keeping the page lightweight.</p>
+    </section>
+
+    <p class="footer" data-lang="zh">最后更新：2026 年 5 月。精选内容整理自个人作品集归档。</p>
+    <p class="footer" data-lang="en">Last update: May 2026. Curated from the local portfolio archive.</p>
+  </main>
+
+  <script>
+    const buttons = document.querySelectorAll("[data-set-lang]");
+
+    function setLanguage(lang) {
+      document.body.classList.toggle("lang-en", lang === "en");
+      document.body.classList.toggle("lang-zh", lang === "zh");
+      document.documentElement.lang = lang === "en" ? "en" : "zh-CN";
+      buttons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.setLang === lang);
+      });
+      localStorage.setItem("portfolio-language", lang);
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.setLang));
+    });
+
+    setLanguage(localStorage.getItem("portfolio-language") || "zh");
+  </script>
+</body>
+
+</html>

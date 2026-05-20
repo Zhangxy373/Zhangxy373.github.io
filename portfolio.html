@@ -220,6 +220,28 @@
       background: #fff;
     }
 
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .button-link {
+      display: inline-block;
+      padding: 7px 10px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .button-link:hover {
+      background: var(--soft);
+      text-decoration: none;
+    }
+
     .tags {
       margin-top: 10px;
     }
@@ -243,6 +265,10 @@
       background: var(--soft);
       color: var(--muted);
       border-radius: 4px;
+    }
+
+    .archive-note {
+      margin-bottom: 16px;
     }
 
     .footer {
@@ -362,6 +388,10 @@
           <p data-lang="zh">面向竞赛路演的项目叙事、商业逻辑、视觉系统和答辩节奏设计。</p>
           <p data-lang="en">Pitch-oriented narrative design with business logic, visual structure, and defense pacing.</p>
           <div class="tags"><span class="tag">281.4 MB</span><span class="tag">Pitch</span><span class="tag">Design</span></div>
+          <div class="actions">
+            <a class="button-link" href="assets/portfolio/pdfs/innovation-competition.pdf" target="_blank" rel="noopener" data-lang="zh">预览 PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/innovation-competition.pdf" target="_blank" rel="noopener" data-lang="en">Preview PDF</a>
+          </div>
         </li>
         <li>
           <span class="meta">Scholarship Defense</span>
@@ -370,6 +400,10 @@
           <p data-lang="zh">围绕学业、科研、竞赛与社会实践组织个人成长叙事。</p>
           <p data-lang="en">A personal academic narrative across coursework, research, competitions, and practice.</p>
           <div class="tags"><span class="tag">64.5 MB</span><span class="tag">Defense</span><span class="tag">Profile</span></div>
+          <div class="actions">
+            <a class="button-link" href="assets/portfolio/pdfs/xiaomi-scholarship-defense.pdf" target="_blank" rel="noopener" data-lang="zh">预览 PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/xiaomi-scholarship-defense.pdf" target="_blank" rel="noopener" data-lang="en">Preview PDF</a>
+          </div>
         </li>
         <li>
           <span class="meta">Research Talk</span>
@@ -378,6 +412,10 @@
           <p data-lang="zh">用于组会论文拆解，强调研究问题、方法结构、实验结论和可复用表达。</p>
           <p data-lang="en">A paper-reading deck focused on research questions, method structure, results, and reusable explanation.</p>
           <div class="tags"><span class="tag">6.0 MB</span><span class="tag">Research</span><span class="tag">Reading</span></div>
+          <div class="actions">
+            <a class="button-link" href="assets/portfolio/pdfs/research-group-paper-sharing.pdf" target="_blank" rel="noopener" data-lang="zh">预览 PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/research-group-paper-sharing.pdf" target="_blank" rel="noopener" data-lang="en">Preview PDF</a>
+          </div>
         </li>
         <li>
           <span class="meta">Coursework</span>
@@ -386,15 +424,29 @@
           <p data-lang="zh">课程汇报与技术展示，覆盖人工智能气象预测、大数据系统和可视化分析。</p>
           <p data-lang="en">Course and technical presentations covering AI meteorology, big-data systems, and visualization analysis.</p>
           <div class="tags"><span class="tag">Coursework</span><span class="tag">AI</span><span class="tag">Data</span></div>
+          <div class="actions">
+            <a class="button-link" href="assets/portfolio/pdfs/ai-meteorology-coursework.pdf" target="_blank" rel="noopener" data-lang="zh">AI 气象 PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/hadoop-coursework.pdf" target="_blank" rel="noopener" data-lang="zh">Hadoop PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/data-visualization-coursework.pdf" target="_blank" rel="noopener" data-lang="zh">数据可视化 PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/data-visualization-portfolio.pdf" target="_blank" rel="noopener" data-lang="zh">可视化作品集 PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/english-class-presentation.pdf" target="_blank" rel="noopener" data-lang="zh">英语汇报 PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/ai-meteorology-coursework.pdf" target="_blank" rel="noopener" data-lang="en">AI Meteorology PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/hadoop-coursework.pdf" target="_blank" rel="noopener" data-lang="en">Hadoop PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/data-visualization-coursework.pdf" target="_blank" rel="noopener" data-lang="en">Data Visualization PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/data-visualization-portfolio.pdf" target="_blank" rel="noopener" data-lang="en">Visualization Portfolio PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/english-class-presentation.pdf" target="_blank" rel="noopener" data-lang="en">English Talk PDF</a>
+          </div>
         </li>
       </ul>
-      <p class="note" data-lang="zh">原始 PPT 文件体积较大，当前线上版本展示主题概览和精选视觉资产；如需完整文件，可从本地归档或后续接入云盘/Release 下载。</p>
-      <p class="note" data-lang="en">The original PPT files are large, so this online version shows project summaries and selected visuals. Full files can be linked later through cloud storage or GitHub Releases.</p>
+      <p class="note" data-lang="zh">所有 PPT 均已导出为 PDF 预览版，单个文件约 1.31-8.10 MB。原始 PPT 文件仍保留在本地归档中，线上版本优先提供可快速打开的 PDF。</p>
+      <p class="note" data-lang="en">All presentation decks have been exported as PDF previews, each around 1.31-8.10 MB. The original PPT files remain in the local archive, while the online version prioritizes lightweight PDF viewing.</p>
     </section>
 
     <section id="visualizations">
       <h2 data-lang="zh">科研绘图精选</h2>
       <h2 data-lang="en">Selected Research Visualizations</h2>
+      <p class="archive-note" data-lang="zh">已从“可视化ppt_v4_final.pptx”中提取并归档 42 张内嵌图片，下面展示其中一组精选图。</p>
+      <p class="archive-note" data-lang="en">42 embedded images have been extracted and archived from the data visualization PPT. A selected subset is shown below.</p>
       <div class="grid">
         <article class="card">
           <img src="assets/portfolio/images/mcm-model-framework.webp" alt="MCM model framework" />
@@ -514,6 +566,36 @@
             <h3 data-lang="en">Market Research SWOT</h3>
             <p data-lang="zh">市场调查项目中的策略分析视觉。</p>
             <p data-lang="en">A strategy analysis visual for market research work.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/visualization-ppt/viz-ppt-02.webp" alt="Extracted data visualization PPT figure" />
+          <div class="card-body">
+            <span class="meta">Extracted PPT Figure</span>
+            <h3 data-lang="zh">可视化 PPT 提取图 01</h3>
+            <h3 data-lang="en">Visualization PPT Extract 01</h3>
+            <p data-lang="zh">来自数据可视化课程作品的图表设计。</p>
+            <p data-lang="en">A chart design extracted from the data visualization coursework deck.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/visualization-ppt/viz-ppt-12.webp" alt="Extracted data visualization PPT figure" />
+          <div class="card-body">
+            <span class="meta">Extracted PPT Figure</span>
+            <h3 data-lang="zh">可视化 PPT 提取图 02</h3>
+            <h3 data-lang="en">Visualization PPT Extract 02</h3>
+            <p data-lang="zh">强调信息层级、颜色编码和图文排版。</p>
+            <p data-lang="en">A visual focused on information hierarchy, color coding, and layout.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/portfolio/images/visualization-ppt/viz-ppt-27.webp" alt="Extracted data visualization PPT figure" />
+          <div class="card-body">
+            <span class="meta">Extracted PPT Figure</span>
+            <h3 data-lang="zh">可视化 PPT 提取图 03</h3>
+            <h3 data-lang="en">Visualization PPT Extract 03</h3>
+            <p data-lang="zh">用于展示数据分析结果的页面视觉。</p>
+            <p data-lang="en">A slide visual for communicating data analysis results.</p>
           </div>
         </article>
       </div>

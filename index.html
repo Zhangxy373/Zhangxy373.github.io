@@ -257,6 +257,43 @@
       font-weight: 700;
     }
 
+    .portfolio-summary {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .portfolio-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .portfolio-strip img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--wash);
+    }
+
+    .cta-link {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 9px 12px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .cta-link:hover {
+      background: var(--accent-soft);
+      text-decoration: none;
+    }
+
     .pub-list {
       padding-left: 22px;
     }
@@ -329,6 +366,7 @@
 
       .hero,
       .highlights,
+      .portfolio-summary,
       .two-col {
         grid-template-columns: 1fr;
       }
@@ -623,6 +661,32 @@
         <span class="tag">论文写作</span>
         <span class="tag">科研绘图</span>
         <span class="tag">项目统筹</span>
+      </div>
+    </section>
+
+    <section id="portfolio-overview">
+      <h2 data-lang="en">Portfolio</h2>
+      <h2 data-lang="zh">作品集概览</h2>
+      <div class="portfolio-summary">
+        <div>
+          <p data-lang="en">A curated portfolio page collects my presentation design, research visualization, and video editing work. All presentation decks are available as PDF previews, and selected figures extracted from the data visualization deck are archived for quick browsing.</p>
+          <p data-lang="zh">作品集页面集中展示我的 PPT 汇报设计、科研绘图和视频剪辑作品。所有 PPT 已导出为 PDF 预览版，可视化 PPT 中的精选图也已提取归档，便于快速浏览。</p>
+          <div>
+            <span class="tag" data-lang="en">8 PDF previews</span>
+            <span class="tag" data-lang="zh">8 份 PDF 预览</span>
+            <span class="tag" data-lang="en">42 extracted PPT figures</span>
+            <span class="tag" data-lang="zh">42 张 PPT 提取图</span>
+            <span class="tag" data-lang="en">4 video previews</span>
+            <span class="tag" data-lang="zh">4 个视频预览</span>
+          </div>
+          <a class="cta-link" href="./portfolio.html" data-lang="en">View Portfolio</a>
+          <a class="cta-link" href="./portfolio.html" data-lang="zh">进入作品集</a>
+        </div>
+        <div class="portfolio-strip" aria-label="Portfolio preview images">
+          <img src="assets/portfolio/images/visualization-ppt/viz-ppt-02.webp" alt="Portfolio preview figure" />
+          <img src="assets/portfolio/images/mcm-model-framework.webp" alt="Model framework preview" />
+          <img src="assets/portfolio/images/ct-cup-swot.webp" alt="SWOT preview" />
+        </div>
       </div>
     </section>
 

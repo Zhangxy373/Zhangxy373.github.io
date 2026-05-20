@@ -1,235 +1,651 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Xinyue Zhang's Homepage</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Xinyue Zhang">
-    <meta name="keywords" content="Xinyue Zhang, Xinyue Zhang MUC, Xinyue Zhang Artificial Intelligence">
-    <meta name="robots" content="index,follow">
-    <meta name="description" content="Homepage of Xinyue Zhang">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen,print" href="css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Xinyue Zhang" />
+  <meta name="keywords" content="Xinyue Zhang, Zhang Xinyue, 张心悦, Minzu University of China, Data Science, Trustworthy AI, Medical Imaging, LLM Agents" />
+  <meta name="description" content="Academic homepage of Xinyue Zhang, undergraduate researcher in trustworthy AI, multimodal intelligence, medical image analysis, numerical weather prediction, and social network privacy." />
+  <meta name="robots" content="index,follow" />
+  <title>Xinyue Zhang | Academic Homepage</title>
+  <link rel="icon" type="image/png" href="./images/logos/github.png" />
+  <link rel="stylesheet" type="text/css" media="screen,print" href="css/style.css" />
   <link href="css/bootstrap.min.css" rel="stylesheet" media="screen" />
-  <link rel="icon" type="image/png" href="./images/logos/github.png">
-  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=SprBG_FqTpCn5U6ocLiX8ABuld3cuk98s3BKYupIBwtQFIeHZVUdFyik5w8mFKoELfHOa3-sbK_miimlH_9jTw" charset="UTF-8"></script>
   <style>
-  .button {
-    background-color: #e7e7e7; color: black;/* Green */
-    border: none;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-</style>
+    :root {
+      --ink: #172b3f;
+      --muted: #53616f;
+      --line: #d9e0e6;
+      --accent: #127484;
+      --accent-soft: #e7f3f5;
+      --paper: #ffffff;
+      --wash: #f6f8fa;
+      --gold: #a66b00;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      color: var(--ink);
+      background: var(--wash);
+      font-family: Lato, Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #0b5260;
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 18px 44px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .navlinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .lang-switch button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 7px 12px;
+      font-weight: 700;
+    }
+
+    .lang-switch button.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 28px;
+    }
+
+    .portrait {
+      width: 100%;
+      max-height: 360px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    .chinese-name {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .subtitle {
+      margin: 14px 0 16px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .metric {
+      min-height: 96px;
+      background: var(--accent-soft);
+      border: 1px solid #cfe6ea;
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 17px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      margin-top: 28px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 24px 28px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      color: var(--ink);
+      font-size: 23px;
+      line-height: 1.25;
+    }
+
+    h3 {
+      margin: 0 0 6px;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 0 0 11px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .entry {
+      margin-bottom: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .entry-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 7px;
+    }
+
+    .date {
+      flex: 0 0 auto;
+      color: var(--accent);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-right: 6px;
+      margin-bottom: 6px;
+      padding: 3px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--wash);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .pub-list {
+      padding-left: 22px;
+    }
+
+    .pub-list li {
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+
+    .pub-title {
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .venue {
+      color: var(--gold);
+      font-weight: 800;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    [data-lang="zh"] {
+      display: none;
+    }
+
+    body.lang-zh [data-lang="en"] {
+      display: none;
+    }
+
+    body.lang-zh [data-lang="zh"] {
+      display: block;
+    }
+
+    body.lang-zh span[data-lang="zh"],
+    body.lang-zh a[data-lang="zh"] {
+      display: inline;
+    }
+
+    body.lang-en [data-lang="en"] {
+      display: block;
+    }
+
+    body.lang-en span[data-lang="en"],
+    body.lang-en a[data-lang="en"] {
+      display: inline;
+    }
+
+    body.lang-en li[data-lang="en"],
+    body.lang-zh li[data-lang="zh"] {
+      display: list-item;
+    }
+
+    @media (max-width: 760px) {
+      .topbar,
+      .entry-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero,
+      .highlights,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .hero,
+      section {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .date {
+        white-space: normal;
+      }
+    }
+  </style>
 </head>
 
-<body>
-<div class="container">
-<br>
-<br>
+<body class="lang-en">
+  <main class="page">
+    <div class="topbar">
+      <nav class="navlinks" aria-label="Page navigation">
+        <a href="#about" data-lang="en">About</a>
+        <a href="#publications" data-lang="en">Publications</a>
+        <a href="#experience" data-lang="en">Experience</a>
+        <a href="#awards" data-lang="en">Awards</a>
+        <a href="#skills" data-lang="en">Skills</a>
+        <a href="#about" data-lang="zh">关于我</a>
+        <a href="#publications" data-lang="zh">论文成果</a>
+        <a href="#experience" data-lang="zh">科研经历</a>
+        <a href="#awards" data-lang="zh">荣誉奖项</a>
+        <a href="#skills" data-lang="zh">相关技能</a>
+      </nav>
+      <div class="lang-switch" aria-label="Language switch">
+        <button type="button" class="active" data-set-lang="en">EN</button>
+        <button type="button" data-set-lang="zh">中文</button>
+      </div>
+    </div>
 
-<div class="row">
-<div class="col-sm-4">
-<br>
-<img class="img-responsive" style="max-height:400px;" src="images/selfie.jpg"/>
-</div>
+    <header class="hero">
+      <img class="portrait" src="images/selfie.jpg" alt="Xinyue Zhang" />
+      <div>
+        <p class="eyebrow" data-lang="en">Undergraduate Researcher</p>
+        <p class="eyebrow" data-lang="zh">本科生科研工作者</p>
+        <h1>
+          Xinyue Zhang
+          <span class="chinese-name">张心悦</span>
+        </h1>
+        <p class="subtitle" data-lang="en">B.S. student in Data Science and Big Data Technology, Minzu University of China</p>
+        <p class="subtitle" data-lang="zh">中央民族大学数据科学与大数据技术专业本科在读</p>
+        <ul class="contact">
+          <li><strong>Email:</strong> <a href="mailto:zxy17757707133@163.com">zxy17757707133@163.com</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/Zhangxy373" target="_blank" rel="noopener">Zhangxy373</a></li>
+          <li><strong>Google Scholar:</strong> 19 citations, h-index 2</li>
+        </ul>
+        <div class="highlights">
+          <div class="metric">
+            <strong data-lang="en">Academic Standing</strong>
+            <strong data-lang="zh">学业表现</strong>
+            <span data-lang="en">GPA 4.05/5.0; ranked 10/119, top 8%.</span>
+            <span data-lang="zh">GPA 4.05/5.0；绩点排名 10/119，前 8%。</span>
+          </div>
+          <div class="metric">
+            <strong data-lang="en">Research Output</strong>
+            <strong data-lang="zh">科研产出</strong>
+            <span data-lang="en">5 papers/preprints across AI safety, privacy, and medical imaging.</span>
+            <span data-lang="zh">论文/预印本 5 篇，涵盖 AI 安全、隐私保护与医学影像。</span>
+          </div>
+          <div class="metric">
+            <strong data-lang="en">Research Interests</strong>
+            <strong data-lang="zh">研究方向</strong>
+            <span data-lang="en">Trustworthy AI, multimodal intelligence, medical imaging, weather prediction.</span>
+            <span data-lang="zh">可信人工智能、多模态智能、医学影像、气象预测。</span>
+          </div>
+        </div>
+      </div>
+    </header>
 
-<!-- Name -->
-<div class="col-sm-8">
-<div class="clearfix visible-xs-block"></div>
-<h1>
-    Xinyue Zhang
-    <span style="font-family: STFangsong; font-size: 20pt; position: relative; top: -4px;">
-      (张心悦)
-    </span>
-  </h1>  
+    <section id="about">
+      <h2 data-lang="en">About</h2>
+      <h2 data-lang="zh">关于我</h2>
+      <p data-lang="en">
+        I am an undergraduate student majoring in Data Science and Big Data Technology at Minzu University of China. My research interests center on trustworthy artificial intelligence, multimodal intelligence, medical image analysis, numerical weather prediction, and privacy protection in social networks.
+      </p>
+      <p data-lang="zh">
+        我是中央民族大学数据科学与大数据技术专业本科生。我的研究兴趣集中于可信人工智能、多模态智能、医学影像分析、气象数值预测和社交网络隐私保护。
+      </p>
+      <p data-lang="en">
+        My recent work spans LLM-based multi-agent system safety, dynamic privacy protection with large language models, coronary angiogram segmentation, and chest X-ray classification with topological data analysis and ResNet.
+      </p>
+      <p data-lang="zh">
+        近期研究工作涵盖基于大语言模型的多智能体系统安全、大模型驱动的社交网络动态隐私保护、冠脉造影图像分割，以及结合拓扑数据分析与 ResNet 的胸部 X 光分类。
+      </p>
+    </section>
 
-<!-- Status -->
-<p style="font-size: 18px; line-height: 1.95; font-weight: normal;">
-   <strong style="font-size: 18px;">Undergraduate</strong><br>
-   <span style="font-size: 18px;">Minzu University of China & City University of Macau</span><br>
-   <b style="font-size: 18px;">Email</b>: <span style="font-size: 18px;">23160147@muc.edu.cn<br>
-   <span style="font-size: 18px;"><b>Or</b> &nbsp;D23090600661@cityu.edu.mo<br>
-   <a href="#" target="_blank" style="font-size: 18px;">Google Scholar</a> |
-   <!-- <a href="#" target="_blank" style="font-size: 18px;">Twitter</a>,  -->
-   <a href="https://github.com/Zhangxy373" target="_blank" style="font-size: 18px;">Github</a>
-</p>
-</div>
-</div>
+    <section id="education">
+      <h2 data-lang="en">Education</h2>
+      <h2 data-lang="zh">教育经历</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <h3 data-lang="en">Minzu University of China</h3>
+            <h3 data-lang="zh">中央民族大学</h3>
+            <p data-lang="en">B.S. in Data Science and Big Data Technology</p>
+            <p data-lang="zh">数据科学与大数据技术，本科</p>
+          </div>
+          <div class="date">2023.09 - Present</div>
+        </div>
+        <p data-lang="en">GPA: <strong>4.05/5.0</strong>; ranking: <strong>10/119</strong>, top <strong>8%</strong>.</p>
+        <p data-lang="zh">GPA：<strong>4.05/5.0</strong>；绩点排名：<strong>10/119</strong>，前 <strong>8%</strong>。</p>
+      </div>
+    </section>
 
-<!-- Negotiation -->
-<hr/>
-<h4>
-  <a href="#publications">Papers </a> /
-  <a href="#programs">Projects</a> /
-  <a href="#awards">Awards</a> /
-  <a href="#team">Group</a> 
-</h4>
-<hr/>
+    <section id="publications">
+      <h2 data-lang="en">Publications</h2>
+      <h2 data-lang="zh">论文与学术成果</h2>
+      <ol class="pub-list">
+        <li>
+          <span class="pub-title"><a href="https://arxiv.org/abs/2507.04724" target="_blank" rel="noopener">Who's the Mole? Modeling and Detecting Intention-Hiding Malicious Agents in LLM-Based Multi-Agent Systems</a></span><br />
+          Y. Xie, C. Zhu, <strong>X. Zhang</strong>, T. Zhu, D. Ye, M. Wang, C. Liu.<br />
+          <span class="venue">arXiv preprint</span>, 2025.
+        </li>
+        <li>
+          <span class="pub-title"><a href="https://arxiv.org/abs/2603.04474" target="_blank" rel="noopener">From Spark to Fire: Modeling and Mitigating Error Cascades in LLM-Based Multi-Agent Collaboration</a></span><br />
+          Y. Xie, C. Zhu, <strong>X. Zhang</strong>, T. Zhu, D. Ye, M. Qi, H. Chen, W. Zhou.<br />
+          <span class="venue">arXiv preprint</span>, 2026.
+        </li>
+        <li>
+          <span class="pub-title"><a href="https://dblp.org/rec/conf/dsc/RenLJZHY024" target="_blank" rel="noopener">Contrastive Learning for Chest X-ray Classification: A Fusion of Topological Data Analysis and ResNet</a></span><br />
+          H. Ren, Z. Luo, F. Jing, <strong>X. Zhang</strong>, H. He, Y. Yu, D. Zhao.<br />
+          <span class="venue">IEEE International Conference on Data Science in Cyberspace</span>, 2024.
+        </li>
+        <li>
+          <span class="pub-title"><a href="https://doi.org/10.1007/s13755-025-00339-5" target="_blank" rel="noopener">LASF: A Local Adaptive Segmentation Framework for Coronary Angiogram Segments</a></span><br />
+          H. Ren, D. Li, F. Jing, <strong>X. Zhang</strong>, X. Tian, S. Xie, et al.<br />
+          <span class="venue">Health Information Science and Systems</span>, 2025.
+        </li>
+        <li>
+          <span class="pub-title"><a href="https://dblp.org/rec/conf/ica3pp/XieZZHL24" target="_blank" rel="noopener">Dynamic Privacy Protection with Large Language Model in Social Networks</a></span><br />
+          Y. Xie, C. Zhu, <strong>X. Zhang</strong>, X. Hu, X. Liu.<br />
+          <span class="venue">International Conference on Algorithms and Architectures for Parallel Processing</span>, 2024.
+        </li>
+      </ol>
+    </section>
 
-<!-- biogrophy -->
-<h3 id="bio">About</h3>
-<p style="font-size: 18px; line-height: 1.4; font-weight: normal;">
-  Hello! I'm an undergraduate student majoring in Data Science and Big Data Technology at a joint program between Minzu University of China and City University of Macau. Passionate about harnessing artificial intelligence to transform various fields, I'm particularly fascinated by its potential in medical image analysis, geography, and meteorology. Under the expert guidance of Hao Ren from the AI Research Institute at Guangdong's Second People’s Hospital, and Ting Shu from the Tropical Meteorology Research Institute of Guangdong Province, I'm deeply involved in pioneering research that seeks to push the boundaries of technology and its applications.
-</p>
-  <div id="debug">
-</div>
+    <section id="experience">
+      <h2 data-lang="en">Research & Internship Experience</h2>
+      <h2 data-lang="zh">科研与实习经历</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <h3 data-lang="en">Artificial Intelligence Institute, Guangdong Second Provincial General Hospital</h3>
+            <h3 data-lang="zh">广东省第二人民医院人工智能研究所</h3>
+            <p data-lang="en">Research Assistant Intern</p>
+            <p data-lang="zh">实习科研助理</p>
+          </div>
+          <div class="date">2024.02 - 2024.09</div>
+        </div>
+        <ul data-lang="en">
+          <li>Worked on cardiac angiography image analysis and brain-slice graph analysis, including medical image data processing, experiment organization, and AI model training.</li>
+          <li>Supported model tuning, result analysis, and manuscript preparation for medical image classification and segmentation research.</li>
+          <li>Contributed to two CCF-C conference papers as co-first author and participated in a SCI Q2 manuscript as student first author.</li>
+        </ul>
+        <ul data-lang="zh">
+          <li>参与心脏造影图像分析和脑片图形分析项目，负责医学影像数据处理、实验整理与人工智能模型训练。</li>
+          <li>参与医学影像分类与分割相关研究，配合完成模型调优、结果分析与论文材料整理。</li>
+          <li>以共同一作身份参与发表 CCF-C 类会议论文两篇，并以学生一作身份参与 SCI 二区论文在投工作。</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <h3 data-lang="en">Big Data Management Center of Rui'an, Zhejiang</h3>
+            <h3 data-lang="zh">浙江省瑞安市大数据管理中心</h3>
+            <p data-lang="en">Data Security Intern</p>
+            <p data-lang="zh">数据安全科实习生</p>
+          </div>
+          <div class="date">2024.06 - 2024.08</div>
+        </div>
+        <ul data-lang="en">
+          <li>Assisted municipal departments with data cleaning, aggregation, screening, and organization; participated in database management and maintenance.</li>
+          <li>Worked on enterprise data governance tasks, including enterprise data filtering, collection, cleaning, and standardization.</li>
+        </ul>
+        <ul data-lang="zh">
+          <li>配合相关部门完成市级数据清洗、归集、筛选与整理工作，参与数据库管理与维护。</li>
+          <li>参与瑞安市企业相关数据治理项目，负责企业数据筛选、归集、清洗和规范化处理。</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <h3 data-lang="en">Innovation Research Center, Guangdong Meteorological Service</h3>
+            <h3 data-lang="zh">广东省气象局创新研究中心</h3>
+            <p data-lang="en">Research Assistant Intern</p>
+            <p data-lang="zh">实习科研助理</p>
+          </div>
+          <div class="date">2024.09 - 2025.04</div>
+        </div>
+        <ul data-lang="en">
+          <li>Participated in short-term precipitation numerical prediction research, covering data processing, model training, tuning, and testing.</li>
+          <li>Conducted literature review, technical analysis, and writing for AI-based meteorological prediction and large-model forecasting.</li>
+        </ul>
+        <ul data-lang="zh">
+          <li>参与短临降水数值预测科研工作，负责数据处理、模型训练、调优和实验测试。</li>
+          <li>参与人工智能气象预测与大模型预报方向的文献调研、技术分析和论文写作。</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <h3 data-lang="en">Research Group, Faculty of Data Science, City University of Macau</h3>
+            <h3 data-lang="zh">澳门城市大学数据科学学院课题组</h3>
+            <p data-lang="en">Research Member</p>
+            <p data-lang="zh">科研成员</p>
+          </div>
+          <div class="date">2024.06 - 2025.11</div>
+        </div>
+        <ul data-lang="en">
+          <li>Worked on dynamic privacy protection mechanisms in social networks driven by large language models, including idea organization, mechanism design, and manuscript writing.</li>
+          <li>The project paper was published at ICA3PP 2024, a CCF-C conference.</li>
+        </ul>
+        <ul data-lang="zh">
+          <li>参与大语言模型驱动的社交网络动态隐私保护机制研究，负责研究思路整理、机制设计与论文写作。</li>
+          <li>项目成果论文发表于 2024 年 ICA3PP 会议，会议类别为 CCF-C 类。</li>
+        </ul>
+      </div>
+    </section>
 
+    <section id="awards">
+      <h2 data-lang="en">Honors & Awards</h2>
+      <h2 data-lang="zh">荣誉与竞赛奖励</h2>
+      <div class="two-col">
+        <div>
+          <h3 data-lang="en">Honors</h3>
+          <h3 data-lang="zh">主要荣誉</h3>
+          <ul>
+            <li data-lang="en">National Scholarship</li>
+            <li data-lang="zh">国家奖学金</li>
+            <li data-lang="en">Xiaomi Scholarship</li>
+            <li data-lang="zh">小米奖学金</li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-lang="en">Competitions</h3>
+          <h3 data-lang="zh">竞赛奖励</h3>
+          <ul>
+            <li data-lang="en">Finalist, Mathematical Contest in Modeling / Interdisciplinary Contest in Modeling, 2024</li>
+            <li data-lang="zh">2024 年美国/国际大学生数学建模竞赛：Finalist 奖（特等奖提名）</li>
+            <li data-lang="en">National Gold Award, China International College Students' Innovation Competition, 2025</li>
+            <li data-lang="zh">中国国际大学生创新大赛（2025）高教主赛道：国家级金奖</li>
+            <li data-lang="en">National Silver Award, 14th Challenge Cup Chinese College Students' Entrepreneurship Plan Competition</li>
+            <li data-lang="zh">第十四届“挑战杯”中国大学生创业计划竞赛主体赛：国家级银奖</li>
+            <li data-lang="en">National First Prize, 15th Chia Tai Cup National College Student Market Survey and Analysis Competition</li>
+            <li data-lang="zh">第十五届“正大杯”全国大学生市场调查与分析大赛：国家级一等奖</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<!-- Publications -->
-<h3 id="publications">Publications</h3>
+    <section id="skills">
+      <h2 data-lang="en">Skills</h2>
+      <h2 data-lang="zh">相关技能</h2>
+      <div data-lang="en">
+        <span class="tag">Python</span>
+        <span class="tag">C</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Deep Learning</span>
+        <span class="tag">Medical Imaging</span>
+        <span class="tag">Meteorological Prediction</span>
+        <span class="tag">Large Language Models</span>
+        <span class="tag">Data Cleaning</span>
+        <span class="tag">LaTeX</span>
+        <span class="tag">Academic Writing</span>
+        <span class="tag">Research Visualization</span>
+        <span class="tag">Project Coordination</span>
+      </div>
+      <div data-lang="zh">
+        <span class="tag">Python</span>
+        <span class="tag">C 语言</span>
+        <span class="tag">机器学习</span>
+        <span class="tag">深度学习</span>
+        <span class="tag">医学影像</span>
+        <span class="tag">气象预测</span>
+        <span class="tag">大语言模型</span>
+        <span class="tag">数据清洗</span>
+        <span class="tag">LaTeX</span>
+        <span class="tag">论文写作</span>
+        <span class="tag">科研绘图</span>
+        <span class="tag">项目统筹</span>
+      </div>
+    </section>
 
-<h4>
-<button class="button" onclick="myFunction('manuscript')" style="text-align: left;">
-  Recent Works
-  </button>
-</h4>
-<ul id="manuscript" style="display:none;">
-</ul>
+    <p class="footer" data-lang="en">Last update: May 2026. Template adapted from Tengyu Ma's and Danqi Chen's academic homepage templates.</p>
+    <p class="footer" data-lang="zh">最后更新：2026 年 5 月。模板改编自 Tengyu Ma 与 Danqi Chen 的学术主页模板。</p>
+  </main>
 
-<h4>
-  <button class="button" onclick="myFunction('conference')">
-  Conference Papers 
-  </button>
-  </h4>
-  <ul id="conference" style="display:none;">
-  </ul>
+  <script>
+    const buttons = document.querySelectorAll("[data-set-lang]");
 
-<h4>
-    <button class="button" onclick="myFunction('journal')">
-    Journal Articals 
-    </button>
-  </h4>
-  <ul id="journal" style="display:none;">
-  </ul>
+    function setLanguage(lang) {
+      document.body.classList.toggle("lang-zh", lang === "zh");
+      document.body.classList.toggle("lang-en", lang === "en");
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+      buttons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.setLang === lang);
+      });
+      localStorage.setItem("homepage-language", lang);
+    }
 
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.setLang));
+    });
 
-<!-- Projects & Column -->
-<h3 id="programs">Projects & Column</h3>
-<p style="font-size: 18px; line-height: 1.4; font-weight: normal;">
-  I am eager to engage in the development of the open-source community. Although my development skills are still evolving, I have already taken part in several open-source projects. I will continue to actively share my personal projects, hoping to provide some wheels to those in need. Here are some of the projects I've been involved in, along with their descriptions:
-</p>
-<ul>
-    <li>MUC-CityU_Report_Latex_Template <a href="https://github.com/Zhangxy373/MUC-CityU_Report_Latex_Template">(Github) </a><a href="https://www.overleaf.com/latex/templates/muc-plus-cityuke-cheng-bao-gao-mo-ban/xcmjmkmcxmny">(Overleaf) </a>: This template is specifically designed for students of the Hainan International College, a joint institution of Minzu University of China and City University of Macau. Given that our two distinguished schools do not offer an official template nor have there been any precedents, I have created this simple template by integrating templates from other schools with my own layout experience.</li>
-    <li>yolo_label_tool <a href="https://github.com/Zhangxy373/yolo_label_tool">(Github) </a>: Here are several custom programs I developed for handling label data in various formats. The goal is to transform these labels into formats acceptable by the YOLO model or to visually preview the labels on images. I found that existing tools do not adequately address certain issues, especially when dealing with segmented images that feature annular labels. To tackle these problems, I created these programs. One technique I use for labels with closed loops involves creating a gap at the thinnest part of the loop, turning it into a polygon. However, this approach may not be suitable for all tasks, so please use it judiciously based on your specific needs.</li>
-</ul>
-
-
-
-<!-- Awards -->
-<h3 id="awards">Awards</h3>
-<ul>
-    <li>2023-2024 National Scholarship (Undergraduate)</li>
-</ul>
-
-
-<!-- Team -->
-<h3 id="team">Research Group</h3>
-<p style="font-size: 18px; line-height: 1.4; font-weight: normal;">
-    I am honored to introduce our research group. We are a spontaneously formed team, consisting of students in the dual-degree undergraduate program at Minzu University of China and City University of Macau. We share common interests, plans, and values, and actively support each other's growth. <br>
-</p>
-
-<p style="font-size: 18px; line-height: 1.4; font-weight: normal;">
-    Our research focuses include Computer Vision, Medical imaging and LLM safety. Our team leader, <b>Dongxiao Li</b>, is a handsome, bright and generous person. If you are interested in joining our group for collaborative learning and growth, please feel free to reach out to him.
-</p>
-<p style="font-size: 18px; line-height: 1.4; font-weight: normal;">
-    Here are the current members of our research group:<br> 
-    <a href="https://williamleedawn.github.io/" target="_blank">Dongxiao Li </a>, Xinyue Zhang, Xingyuan Tian and Ruinan Chen.
-</p>
-<!-- <ul>
-    <li><a href="https://williamleedawn.github.io/" target="_blank">Dongxiao Li </a> (Undergraduate.2023, MUC & CityU of Macau)</li>
-</ul> -->
-
-
-<script>
-function myFunction(name){
-  var x = document.getElementById(name)
-  if (x.style.display === "none"){
-    x.style.display = null
-  } else {
-    x.style.display = "none"
-  }
-}
-
-function showb(name, bibtex){
-  if (!document.getElementById(name+"_bib").innerHTML.includes('pre')) {
-    document.getElementById(name+"_bib").innerHTML += '<pre style="font-size: 10px">' + bibtex + '</pre>'
-  } else {
-    document.getElementById(name+"_bib").innerHTML = ''
-  }
-
-}
-
-function addpaper(link, title, author, conference, conferenceLevel, year, bibtex, name, blockname, codelink, slides, blog, tweet) {
-  re = "<li><a href=" + link + " target=\"_blank\"" + ">" + title + "</a><br>" + author + "<br>" + conference + ' (<strong>' + conferenceLevel + '</strong>) ' + year + ". "; 
-  re += '<a href="javascript:showb(\''+ name + '\'' + ',\'' + bibtex + '\')">bibtex<\/a>';
-  
-  if (codelink != null){
-    re += ' <a href=\"' + codelink + '\"' + ' style="color: navy;" target=\"_blank\"' + '>code<\/a>';
-  }
-  
-  if (slides != null){
-    re += ' <a href=\"slides\/' + slides + '.pptx\"' + ' style="color: teal;" target=\"_blank\"' + '>slides(pptx)<\/a> ';
-    re += '<a href=\"slides\/' + slides + '.pdf\"' + ' style="color: teal;" target=\"_blank\"' + '>slides(pdf)<\/a>';
-  }
-  
-  if (blog != null){
-    re += ' <a href=\"' + blog + '\"' + ' style="color: fuchsia;" target=\"_blank\"' + '>blog<\/a> ';
-  }
-  
-  if (tweet != null){
-    re += ' <a href=\"' + tweet + '\"' + ' style="color: fuchsia;" target=\"_blank\"' + '>tweet<\/a> ';
-  }
-  
-  re += '<div id="' + name + '_bib"></div>';
-  re += '<\/li>';
-  re += '<br>';
-  
-  document.getElementById(blockname).innerHTML += re;
-}
-
-
-// add papers
-bibtexstring = `null`.replace(/\n/g, '<br>')
-addpaper("#",
-         "Dynamic Privacy Protection with Large Language Model in Social Networks",
-         "Yizhe Xie, Congcong Zhu*, Xinyue Zhang, Xiangyu Hu and Xuan Liu", 
-         "ICA3PP", 
-         "CCF-C",
-         "2024", 
-         bibtexstring,
-         "dynamic_privacy_llm", 
-         'manuscript',
-         null,
-         null, 
-         null);
-
-
-bibtexstring = `null`.replace(/\n/g, '<br>')
-addpaper("#",
-         "Contrastive Learning for Chest X-ray Classification: A Fusion of Topological Data Analysis and ResNet",
-         "Yizhe Xie, Congcong Zhu*, Xinyue Zhang, Xiangyu Hu and Xuan Liu", 
-         "ICA3PP", 
-         "CCF-C",
-         "2024", 
-         bibtexstring,
-         "dynamic_privacy_llm", 
-         'conference',
-         null,
-         null, 
-         null);
-
-</script>
-
-<hr/>
-<p>Last update: 2024/09. Template adapted from <a href=https://ai.stanford.edu/~tengyuma>Tengyu Ma</a>'s, <a href=https://www.cs.princeton.edu/~danqic>Danqi Chen</a>'s.</p>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-</div>
+    setLanguage(localStorage.getItem("homepage-language") || "en");
+  </script>
 </body>
+
 </html>

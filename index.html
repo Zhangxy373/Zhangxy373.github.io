@@ -83,8 +83,8 @@
       --paper: #ffffff;
       --wash: #f7f9f8;
       --gold: #9b6a14;
-      --shadow: 0 18px 45px rgba(18, 33, 47, 0.08);
-      --shadow-soft: 0 10px 26px rgba(18, 33, 47, 0.06);
+      --shadow: 0 14px 34px rgba(18, 33, 47, 0.06);
+      --system-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     * {
@@ -94,7 +94,7 @@
     body {
       color: var(--ink);
       background: var(--wash);
-      font-family: Lato, Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      font-family: var(--system-font);
       font-size: 16px;
       line-height: 1.65;
       margin: 0;
@@ -128,7 +128,7 @@
       padding: 10px;
       border: 1px solid rgba(221, 229, 228, 0.82);
       border-radius: 16px;
-      background: rgba(247, 249, 248, 0.92);
+      background: rgba(255, 255, 255, 0.82);
       backdrop-filter: blur(14px);
     }
 
@@ -193,7 +193,7 @@
       object-fit: cover;
       border-radius: 18px;
       border: 1px solid var(--line);
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 10px 28px rgba(18, 33, 47, 0.05);
     }
 
     .eyebrow {
@@ -238,11 +238,16 @@
 
     .contact li {
       margin: 0;
-      padding: 6px 10px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: #fbfcfc;
+      padding: 0 10px 0 0;
+      border: 0;
+      border-right: 1px solid var(--line);
+      border-radius: 0;
+      background: transparent;
       line-height: 1.35;
+    }
+
+    .contact li:last-child {
+      border-right: 0;
     }
 
     .highlights {
@@ -250,14 +255,17 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
       margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
     }
 
     .metric {
-      min-height: 118px;
-      background: #f8fbfa;
-      border: 1px solid #d7e8e5;
-      border-radius: 16px;
-      padding: 16px;
+      min-height: 0;
+      background: transparent;
+      border: 0;
+      border-left: 3px solid var(--accent-soft);
+      border-radius: 0;
+      padding: 0 0 0 14px;
     }
 
     .metric strong {
@@ -274,12 +282,13 @@
 
     section {
       scroll-margin-top: 92px;
-      margin-top: 22px;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 28px 32px;
-      box-shadow: var(--shadow-soft);
+      margin-top: 26px;
+      background: transparent;
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-radius: 0;
+      padding: 28px 4px 0;
+      box-shadow: none;
     }
 
     h2 {
@@ -372,13 +381,19 @@
       display: inline-block;
       margin-right: 6px;
       margin-bottom: 6px;
-      padding: 4px 9px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      background: #fbfcfc;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      color: var(--accent-strong);
+      background: transparent;
       font-size: 13px;
       font-weight: 700;
+    }
+
+    .tag::before {
+      content: "#";
+      color: var(--muted);
+      font-weight: 600;
     }
 
     .portfolio-summary {
@@ -415,8 +430,8 @@
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
-      border: 1px solid var(--line);
-      border-radius: 14px;
+      border: 0;
+      border-radius: 10px;
       background: var(--wash);
     }
 
@@ -475,10 +490,10 @@
     }
 
     .award-panel {
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: #fbfcfc;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
     }
 
     .award-panel + .award-panel {
@@ -504,7 +519,7 @@
     .award-group ul {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 8px;
+      gap: 0;
       padding-left: 0;
       list-style: none;
     }
@@ -513,10 +528,11 @@
     .award-panel > ul li {
       position: relative;
       margin: 0;
-      padding: 9px 12px 9px 28px;
-      border: 1px solid #e6eceb;
-      border-radius: 12px;
-      background: #fff;
+      padding: 9px 0 9px 22px;
+      border: 0;
+      border-bottom: 1px solid #edf1f0;
+      border-radius: 0;
+      background: transparent;
       line-height: 1.55;
     }
 
@@ -525,7 +541,7 @@
       content: "";
       position: absolute;
       top: 17px;
-      left: 13px;
+      left: 3px;
       width: 6px;
       height: 6px;
       border-radius: 50%;
@@ -607,6 +623,11 @@
         border-radius: 18px;
       }
 
+      section {
+        padding: 24px 0 0;
+        border-radius: 0;
+      }
+
       h1 {
         font-size: 32px;
       }
@@ -617,6 +638,7 @@
 
       .contact li {
         width: 100%;
+        border-right: 0;
       }
 
       .date {
@@ -638,7 +660,7 @@
       }
 
       section {
-        padding: 18px;
+        padding: 22px 0 0;
       }
     }
   </style>

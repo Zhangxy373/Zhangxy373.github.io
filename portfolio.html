@@ -213,6 +213,8 @@
     }
 
     .ppt-list li {
+      display: flex;
+      flex-direction: column;
       min-height: 116px;
       padding: 16px;
       border: 1px solid var(--line);
@@ -223,18 +225,26 @@
     .actions {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 8px;
-      margin-top: 12px;
+      margin-top: auto;
+      padding-top: 12px;
     }
 
     .button-link {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
       padding: 7px 10px;
       border: 1px solid var(--accent);
       border-radius: 6px;
       color: var(--accent);
       font-size: 14px;
       font-weight: 800;
+      line-height: 1.25;
+      white-space: normal;
+      text-align: center;
     }
 
     .button-link:hover {
@@ -283,7 +293,11 @@
     }
 
     body.lang-en [data-lang="zh"] {
-      display: none;
+      display: none !important;
+    }
+
+    body.lang-zh [data-lang="en"] {
+      display: none !important;
     }
 
     body.lang-en [data-lang="en"] {
@@ -324,6 +338,21 @@
         font-size: 30px;
       }
     }
+
+    @media (max-width: 520px) {
+      .page {
+        padding: 18px 12px 36px;
+      }
+
+      .actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .button-link {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
@@ -351,13 +380,13 @@
       <p class="eyebrow" data-lang="en">Portfolio</p>
       <h1 data-lang="zh">张心悦作品集</h1>
       <h1 data-lang="en">Xinyue Zhang Portfolio</h1>
-      <p class="lead" data-lang="zh">这里整理展示我的汇报设计、科研绘图和视频剪辑作品。内容来自本地作品集归档，并经过压缩筛选，便于在线浏览。</p>
-      <p class="lead" data-lang="en">A curated collection of my presentation design, research visualization, and video editing works, optimized from the local archive for fast online browsing.</p>
+      <p class="lead" data-lang="zh">这里展示精选汇报设计、科研绘图和视频剪辑作品。内容已按公开展示场景整理，优先保留代表性强、加载友好的预览版本。</p>
+      <p class="lead" data-lang="en">A curated collection of selected presentation design, research visualization, and video editing works, organized for public viewing with representative, lightweight previews.</p>
       <div class="stats">
         <div class="stat">
-          <strong>8</strong>
-          <span data-lang="zh">份 PPT 作品归档</span>
-          <span data-lang="en">presentation decks archived</span>
+          <strong>7</strong>
+          <span data-lang="zh">份 PPT 预览</span>
+          <span data-lang="en">presentation PDF previews</span>
         </div>
         <div class="stat">
           <strong>155</strong>
@@ -370,7 +399,7 @@
           <span data-lang="en">video editing projects</span>
         </div>
         <div class="stat">
-          <strong>18</strong>
+          <strong>15</strong>
           <span data-lang="zh">张精选图像在线展示</span>
           <span data-lang="en">featured visuals online</span>
         </div>
@@ -382,15 +411,21 @@
       <h2 data-lang="en">Presentation Design</h2>
       <ul class="ppt-list">
         <li>
-          <span class="meta">Innovation Competition</span>
-          <h3 data-lang="zh">创赛 PPT</h3>
-          <h3 data-lang="en">Innovation Competition Pitch Deck</h3>
-          <p data-lang="zh">面向竞赛路演的项目叙事、商业逻辑、视觉系统和答辩节奏设计。</p>
-          <p data-lang="en">Pitch-oriented narrative design with business logic, visual structure, and defense pacing.</p>
-          <div class="tags"><span class="tag">281.4 MB</span><span class="tag">Pitch</span><span class="tag">Design</span></div>
+          <span class="meta">Coursework</span>
+          <h3 data-lang="zh">课程作业 PPT</h3>
+          <h3 data-lang="en">Coursework Presentation Decks</h3>
+          <p data-lang="zh">课程汇报与技术展示，覆盖人工智能气象预测、Hadoop 理论与实验、数据可视化和英语汇报。</p>
+          <p data-lang="en">Course and technical presentations covering AI meteorology, Hadoop theory and experiments, data visualization, and an English class talk.</p>
+          <div class="tags"><span class="tag">Coursework</span><span class="tag">AI</span><span class="tag">Data</span><span class="tag">English</span></div>
           <div class="actions">
-            <a class="button-link" href="assets/portfolio/pdfs/innovation-competition.pdf" target="_blank" rel="noopener" data-lang="zh">预览 PDF</a>
-            <a class="button-link" href="assets/portfolio/pdfs/innovation-competition.pdf" target="_blank" rel="noopener" data-lang="en">Preview PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/ai-meteorology-coursework.pdf" target="_blank" rel="noopener" data-lang="zh">AI 气象 PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/hadoop-coursework.pdf" target="_blank" rel="noopener" data-lang="zh">Hadoop PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/data-visualization-coursework.pdf" target="_blank" rel="noopener" data-lang="zh">数据可视化 PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/english-class-presentation.pdf" target="_blank" rel="noopener" data-lang="zh">英语汇报 PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/ai-meteorology-coursework.pdf" target="_blank" rel="noopener" data-lang="en">AI Meteorology PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/hadoop-coursework.pdf" target="_blank" rel="noopener" data-lang="en">Hadoop PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/data-visualization-coursework.pdf" target="_blank" rel="noopener" data-lang="en">Data Visualization PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/english-class-presentation.pdf" target="_blank" rel="noopener" data-lang="en">English Talk PDF</a>
           </div>
         </li>
         <li>
@@ -399,7 +434,7 @@
           <h3 data-lang="en">Xiaomi Scholarship Defense Deck</h3>
           <p data-lang="zh">围绕学业、科研、竞赛与社会实践组织个人成长叙事。</p>
           <p data-lang="en">A personal academic narrative across coursework, research, competitions, and practice.</p>
-          <div class="tags"><span class="tag">64.5 MB</span><span class="tag">Defense</span><span class="tag">Profile</span></div>
+          <div class="tags"><span class="tag">Defense</span><span class="tag">Profile</span></div>
           <div class="actions">
             <a class="button-link" href="assets/portfolio/pdfs/xiaomi-scholarship-defense.pdf" target="_blank" rel="noopener" data-lang="zh">预览 PDF</a>
             <a class="button-link" href="assets/portfolio/pdfs/xiaomi-scholarship-defense.pdf" target="_blank" rel="noopener" data-lang="en">Preview PDF</a>
@@ -411,42 +446,34 @@
           <h3 data-lang="en">Research Group Paper Sharing Deck</h3>
           <p data-lang="zh">用于组会论文拆解，强调研究问题、方法结构、实验结论和可复用表达。</p>
           <p data-lang="en">A paper-reading deck focused on research questions, method structure, results, and reusable explanation.</p>
-          <div class="tags"><span class="tag">6.0 MB</span><span class="tag">Research</span><span class="tag">Reading</span></div>
+          <div class="tags"><span class="tag">Research</span><span class="tag">Reading</span></div>
           <div class="actions">
             <a class="button-link" href="assets/portfolio/pdfs/research-group-paper-sharing.pdf" target="_blank" rel="noopener" data-lang="zh">预览 PDF</a>
             <a class="button-link" href="assets/portfolio/pdfs/research-group-paper-sharing.pdf" target="_blank" rel="noopener" data-lang="en">Preview PDF</a>
           </div>
         </li>
         <li>
-          <span class="meta">Coursework</span>
-          <h3 data-lang="zh">AI 气象汇报 / Hadoop 理论与实验 / 数据可视化</h3>
-          <h3 data-lang="en">AI Meteorology, Hadoop, and Data Visualization Decks</h3>
-          <p data-lang="zh">课程汇报与技术展示，覆盖人工智能气象预测、大数据系统和可视化分析。</p>
-          <p data-lang="en">Course and technical presentations covering AI meteorology, big-data systems, and visualization analysis.</p>
-          <div class="tags"><span class="tag">Coursework</span><span class="tag">AI</span><span class="tag">Data</span></div>
+          <span class="meta">Innovation Competition</span>
+          <h3 data-lang="zh">创赛 PPT</h3>
+          <h3 data-lang="en">Innovation Competition Pitch Deck</h3>
+          <p data-lang="zh">面向竞赛路演的项目叙事、商业逻辑、视觉系统和答辩节奏设计。</p>
+          <p data-lang="en">Pitch-oriented narrative design with business logic, visual structure, and defense pacing.</p>
+          <div class="tags"><span class="tag">Pitch</span><span class="tag">Design</span><span class="tag">Competition</span></div>
           <div class="actions">
-            <a class="button-link" href="assets/portfolio/pdfs/ai-meteorology-coursework.pdf" target="_blank" rel="noopener" data-lang="zh">AI 气象 PDF</a>
-            <a class="button-link" href="assets/portfolio/pdfs/hadoop-coursework.pdf" target="_blank" rel="noopener" data-lang="zh">Hadoop PDF</a>
-            <a class="button-link" href="assets/portfolio/pdfs/data-visualization-coursework.pdf" target="_blank" rel="noopener" data-lang="zh">数据可视化 PDF</a>
-            <a class="button-link" href="assets/portfolio/pdfs/data-visualization-portfolio.pdf" target="_blank" rel="noopener" data-lang="zh">可视化作品集 PDF</a>
-            <a class="button-link" href="assets/portfolio/pdfs/english-class-presentation.pdf" target="_blank" rel="noopener" data-lang="zh">英语汇报 PDF</a>
-            <a class="button-link" href="assets/portfolio/pdfs/ai-meteorology-coursework.pdf" target="_blank" rel="noopener" data-lang="en">AI Meteorology PDF</a>
-            <a class="button-link" href="assets/portfolio/pdfs/hadoop-coursework.pdf" target="_blank" rel="noopener" data-lang="en">Hadoop PDF</a>
-            <a class="button-link" href="assets/portfolio/pdfs/data-visualization-coursework.pdf" target="_blank" rel="noopener" data-lang="en">Data Visualization PDF</a>
-            <a class="button-link" href="assets/portfolio/pdfs/data-visualization-portfolio.pdf" target="_blank" rel="noopener" data-lang="en">Visualization Portfolio PDF</a>
-            <a class="button-link" href="assets/portfolio/pdfs/english-class-presentation.pdf" target="_blank" rel="noopener" data-lang="en">English Talk PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/innovation-competition.pdf" target="_blank" rel="noopener" data-lang="zh">预览 PDF</a>
+            <a class="button-link" href="assets/portfolio/pdfs/innovation-competition.pdf" target="_blank" rel="noopener" data-lang="en">Preview PDF</a>
           </div>
         </li>
       </ul>
-      <p class="note" data-lang="zh">所有 PPT 均已导出为 PDF 预览版，单个文件约 1.31-8.10 MB。原始 PPT 文件仍保留在本地归档中，线上版本优先提供可快速打开的 PDF。</p>
-      <p class="note" data-lang="en">All presentation decks have been exported as PDF previews, each around 1.31-8.10 MB. The original PPT files remain in the local archive, while the online version prioritizes lightweight PDF viewing.</p>
+      <p class="note" data-lang="zh">PPT 作品均以 PDF 预览版展示，便于在线快速打开和跨设备浏览。</p>
+      <p class="note" data-lang="en">Presentation works are shown as PDF previews for fast online viewing across devices.</p>
     </section>
 
     <section id="visualizations">
       <h2 data-lang="zh">科研绘图精选</h2>
       <h2 data-lang="en">Selected Research Visualizations</h2>
-      <p class="archive-note" data-lang="zh">已从“可视化ppt_v4_final.pptx”中提取并归档 42 张内嵌图片，下面展示其中一组精选图。</p>
-      <p class="archive-note" data-lang="en">42 embedded images have been extracted and archived from the data visualization PPT. A selected subset is shown below.</p>
+      <p class="archive-note" data-lang="zh">以下为科研、建模和课程项目中的代表性图像，重点展示信息组织、图表表达和研究可视化能力。</p>
+      <p class="archive-note" data-lang="en">Representative visuals from research, modeling, and coursework projects, selected to show information structure, chart design, and research visualization skills.</p>
       <div class="grid">
         <article class="card">
           <img src="assets/portfolio/images/mcm-model-framework.webp" alt="MCM model framework" />
@@ -658,8 +685,8 @@
       <p class="note" data-lang="en">Each video is an 18-second compressed preview that preserves the editing style while keeping the page lightweight.</p>
     </section>
 
-    <p class="footer" data-lang="zh">最后更新：2026 年 5 月。精选内容整理自个人作品集归档。</p>
-    <p class="footer" data-lang="en">Last update: May 2026. Curated from the local portfolio archive.</p>
+    <p class="footer" data-lang="zh">最后更新：2026 年 6 月。精选内容用于公开作品展示。</p>
+    <p class="footer" data-lang="en">Last update: June 2026. Curated for public portfolio viewing.</p>
   </main>
 
   <script>

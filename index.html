@@ -123,19 +123,40 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
       margin: 0 -10px 20px;
-      padding: 10px;
+      padding: 10px 12px;
       border: 1px solid rgba(221, 229, 228, 0.82);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 24px rgba(18, 33, 47, 0.06);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: max-content;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand::before {
+      content: "";
+      width: 10px;
+      height: 28px;
+      border-radius: 999px;
+      background: var(--accent);
     }
 
     .navlinks {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
+      margin-left: auto;
       font-size: 13px;
       font-weight: 700;
     }
@@ -282,32 +303,45 @@
 
     section {
       scroll-margin-top: 92px;
-      margin-top: 26px;
+      position: relative;
+      margin-top: 34px;
       background: transparent;
       border: 0;
       border-top: 1px solid var(--line);
       border-radius: 0;
-      padding: 28px 4px 0;
+      padding: 32px 4px 0;
       box-shadow: none;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 88px;
+      height: 2px;
+      background: var(--accent);
     }
 
     h2 {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin: 0 0 18px;
+      gap: 14px;
+      margin: 0 0 20px;
       padding-bottom: 0;
       border-bottom: 0;
       color: var(--ink);
-      font-size: 23px;
+      font-size: 24px;
       line-height: 1.25;
     }
 
-    h2::after {
-      content: "";
-      flex: 1 1 auto;
-      height: 1px;
-      background: var(--line);
+    h2::before {
+      counter-increment: section;
+      content: counter(section, decimal-leading-zero);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
     }
 
     h3 {
@@ -555,6 +589,10 @@
       text-align: center;
     }
 
+    main {
+      counter-reset: section;
+    }
+
     [data-lang="zh"] {
       display: none;
     }
@@ -608,6 +646,7 @@
 
       .navlinks {
         gap: 4px;
+        margin-left: 0;
       }
 
       .hero,
@@ -669,6 +708,7 @@
 <body class="lang-en">
   <main class="page">
     <div class="topbar">
+      <div class="brand">Xinyue Zhang</div>
       <nav class="navlinks" aria-label="Page navigation">
         <a href="#about" data-lang="en">About</a>
         <a href="#publications" data-lang="en">Publications</a>

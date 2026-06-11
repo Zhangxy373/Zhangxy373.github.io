@@ -388,6 +388,23 @@
       align-items: center;
     }
 
+    .portfolio-summary .tag {
+      margin: 0;
+    }
+
+    .portfolio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .portfolio-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
     .portfolio-strip {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -407,13 +424,18 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-top: 8px;
-      padding: 9px 14px;
+      margin-top: 0;
+      padding: 9px 18px;
       border: 1px solid var(--accent);
       border-radius: 999px;
       color: #fff;
       background: var(--accent);
       font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .portfolio-actions .cta-link {
+      display: inline-flex !important;
     }
 
     .cta-link:hover {
@@ -446,6 +468,68 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 28px;
+    }
+
+    #awards .two-col {
+      grid-template-columns: 1fr;
+    }
+
+    .award-panel {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fbfcfc;
+    }
+
+    .award-panel + .award-panel {
+      margin-top: 16px;
+    }
+
+    .award-panel h3 {
+      margin-bottom: 12px;
+    }
+
+    .award-group {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .award-group:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .award-group ul {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .award-group li,
+    .award-panel > ul li {
+      position: relative;
+      margin: 0;
+      padding: 9px 12px 9px 28px;
+      border: 1px solid #e6eceb;
+      border-radius: 12px;
+      background: #fff;
+      line-height: 1.55;
+    }
+
+    .award-group li::before,
+    .award-panel > ul li::before {
+      content: "";
+      position: absolute;
+      top: 17px;
+      left: 13px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
     }
 
     .footer {
@@ -777,7 +861,7 @@
       <h2 data-lang="en">Honors & Awards</h2>
       <h2 data-lang="zh">荣誉与竞赛奖励</h2>
       <div class="two-col">
-        <div>
+        <div class="award-panel">
           <h3 data-lang="en">Honors</h3>
           <h3 data-lang="zh">主要荣誉</h3>
           <ul>
@@ -787,51 +871,55 @@
             <li data-lang="zh">小米奖学金</li>
           </ul>
         </div>
-        <div>
+        <div class="award-panel">
           <h3 data-lang="en">Competitions</h3>
           <h3 data-lang="zh">竞赛奖励</h3>
-          <h4 data-lang="en">National & International Awards</h4>
-          <h4 data-lang="zh">国家级 / 国际级</h4>
-          <ul>
-            <li data-lang="en">Finalist, Mathematical Contest in Modeling / Interdisciplinary Contest in Modeling, 2024</li>
-            <li data-lang="zh">2024 年美国/国际大学生数学建模竞赛：Finalist 奖（特等奖提名）</li>
-            <li data-lang="en">National Silver Award, Final Round, 14th Challenge Cup Chinese College Students' Entrepreneurship Plan Competition</li>
-            <li data-lang="zh">第十四届“挑战杯”中国大学生创业计划竞赛主体赛总决赛：国家级银奖</li>
-            <li data-lang="en">National Second Prize, 12th National College Student Digital Media Technology Works and Creative Competition</li>
-            <li data-lang="zh">第十二届全国大学生数字媒体科技作品及创意竞赛：国家级二等奖</li>
-            <li data-lang="en">National Second Prize, 12th National College Student Digital Media Technology Works and Creative Competition, Second Project</li>
-            <li data-lang="zh">第十二届全国大学生数字媒体科技作品及创意竞赛（第二项）：国家级二等奖</li>
-            <li data-lang="en">National Third Prize, Final Round, 18th iCAN College Student Innovation and Entrepreneurship Competition</li>
-            <li data-lang="zh">第十八届 iCAN 大学生创新创业大赛总决赛：国家级三等奖</li>
-            <li data-lang="en">National Gold Award, Higher Education Main Track, China International College Students' Innovation Competition, 2025</li>
-            <li data-lang="zh">中国国际大学生创新大赛（2025）高教主赛道：国家级金奖</li>
-            <li data-lang="en">National Third Prize, Challenge Cup National College Students' Extracurricular Academic Science and Technology Works Competition</li>
-            <li data-lang="zh">“挑战杯”全国大学生课外学术科技作品竞赛：国家级三等奖</li>
-            <li data-lang="en">National Group First Prize, Final Round, 15th Chia Tai Cup National College Student Market Survey and Analysis Competition</li>
-            <li data-lang="zh">正大杯第十五届全国大学生市场调查与分析大赛总决赛：国家级集体一等奖</li>
-            <li data-lang="en">International Group First Prize, Final Round, 13th Asia-Pacific College Student Market Survey Competition</li>
-            <li data-lang="zh">第十三届亚太地区大学生市调大赛总决赛：国际级集体一等奖</li>
-          </ul>
-          <h4 data-lang="en">Provincial / Regional Awards</h4>
-          <h4 data-lang="zh">省部级 / 赛区级</h4>
-          <ul>
-            <li data-lang="en">Provincial Third Prize, Hainan Division, 2024 Contemporary Undergraduate Mathematical Contest in Modeling</li>
-            <li data-lang="zh">高教社杯全国大学生数学建模竞赛（2024）海南赛区：省级三等奖</li>
-            <li data-lang="en">Provincial First Prize, South China Division, 18th iCAN College Student Innovation and Entrepreneurship Competition</li>
-            <li data-lang="zh">第十八届 iCAN 大学生创新创业大赛华南赛区：省级一等奖</li>
-            <li data-lang="en">Provincial Silver Award, Hainan Division, China International College Students' Innovation Competition, 2024</li>
-            <li data-lang="zh">中国国际大学生创新大赛（2024）海南赛区：省级银奖</li>
-            <li data-lang="en">Provincial Second Prize, Hainan Division, 2024 Contemporary Undergraduate Mathematical Contest in Modeling</li>
-            <li data-lang="zh">2024 年全国大学生数学建模竞赛海南赛区：省级二等奖</li>
-            <li data-lang="en">Provincial Third Prize, Guangdong/Hainan/Hong Kong/Macao Division, National College Student Statistical Modeling Competition</li>
-            <li data-lang="zh">全国大学生统计建模大赛广东赛区（广东/海南/港澳）：省级三等奖</li>
-            <li data-lang="en">Provincial Third Prize, Hainan Division, Chinese Collegiate Computing Competition</li>
-            <li data-lang="zh">中国大学生计算机设计大赛（海南赛区）：省级三等奖</li>
-            <li data-lang="en">Provincial First Prize, Hainan Division, National College Student Digital Media Technology Works and Creative Competition</li>
-            <li data-lang="zh">全国大学生数字媒体科技作品及创意竞赛（海南赛区）：省级一等奖</li>
-            <li data-lang="en">Provincial Excellence Award, Short Video Event, 2024 Understanding Contemporary China Foreign Language Showcase</li>
-            <li data-lang="zh">2024“理解当代中国”外语风采大赛短视频赛项：省级优秀奖</li>
-          </ul>
+          <div class="award-group">
+            <h4 data-lang="en">National & International Awards</h4>
+            <h4 data-lang="zh">国家级 / 国际级</h4>
+            <ul>
+              <li data-lang="en">Finalist, Mathematical Contest in Modeling / Interdisciplinary Contest in Modeling, 2024</li>
+              <li data-lang="zh">2024 年美国/国际大学生数学建模竞赛：Finalist 奖（特等奖提名）</li>
+              <li data-lang="en">National Silver Award, Final Round, 14th Challenge Cup Chinese College Students' Entrepreneurship Plan Competition</li>
+              <li data-lang="zh">第十四届“挑战杯”中国大学生创业计划竞赛主体赛总决赛：国家级银奖</li>
+              <li data-lang="en">National Second Prize, 12th National College Student Digital Media Technology Works and Creative Competition</li>
+              <li data-lang="zh">第十二届全国大学生数字媒体科技作品及创意竞赛：国家级二等奖</li>
+              <li data-lang="en">National Second Prize, 12th National College Student Digital Media Technology Works and Creative Competition, Second Project</li>
+              <li data-lang="zh">第十二届全国大学生数字媒体科技作品及创意竞赛（第二项）：国家级二等奖</li>
+              <li data-lang="en">National Third Prize, Final Round, 18th iCAN College Student Innovation and Entrepreneurship Competition</li>
+              <li data-lang="zh">第十八届 iCAN 大学生创新创业大赛总决赛：国家级三等奖</li>
+              <li data-lang="en">National Gold Award, Higher Education Main Track, China International College Students' Innovation Competition, 2025</li>
+              <li data-lang="zh">中国国际大学生创新大赛（2025）高教主赛道：国家级金奖</li>
+              <li data-lang="en">National Third Prize, Challenge Cup National College Students' Extracurricular Academic Science and Technology Works Competition</li>
+              <li data-lang="zh">“挑战杯”全国大学生课外学术科技作品竞赛：国家级三等奖</li>
+              <li data-lang="en">National Group First Prize, Final Round, 15th Chia Tai Cup National College Student Market Survey and Analysis Competition</li>
+              <li data-lang="zh">正大杯第十五届全国大学生市场调查与分析大赛总决赛：国家级集体一等奖</li>
+              <li data-lang="en">International Group First Prize, Final Round, 13th Asia-Pacific College Student Market Survey Competition</li>
+              <li data-lang="zh">第十三届亚太地区大学生市调大赛总决赛：国际级集体一等奖</li>
+            </ul>
+          </div>
+          <div class="award-group">
+            <h4 data-lang="en">Provincial / Regional Awards</h4>
+            <h4 data-lang="zh">省部级 / 赛区级</h4>
+            <ul>
+              <li data-lang="en">Provincial Third Prize, Hainan Division, 2024 Contemporary Undergraduate Mathematical Contest in Modeling</li>
+              <li data-lang="zh">高教社杯全国大学生数学建模竞赛（2024）海南赛区：省级三等奖</li>
+              <li data-lang="en">Provincial First Prize, South China Division, 18th iCAN College Student Innovation and Entrepreneurship Competition</li>
+              <li data-lang="zh">第十八届 iCAN 大学生创新创业大赛华南赛区：省级一等奖</li>
+              <li data-lang="en">Provincial Silver Award, Hainan Division, China International College Students' Innovation Competition, 2024</li>
+              <li data-lang="zh">中国国际大学生创新大赛（2024）海南赛区：省级银奖</li>
+              <li data-lang="en">Provincial Second Prize, Hainan Division, 2024 Contemporary Undergraduate Mathematical Contest in Modeling</li>
+              <li data-lang="zh">2024 年全国大学生数学建模竞赛海南赛区：省级二等奖</li>
+              <li data-lang="en">Provincial Third Prize, Guangdong/Hainan/Hong Kong/Macao Division, National College Student Statistical Modeling Competition</li>
+              <li data-lang="zh">全国大学生统计建模大赛广东赛区（广东/海南/港澳）：省级三等奖</li>
+              <li data-lang="en">Provincial Third Prize, Hainan Division, Chinese Collegiate Computing Competition</li>
+              <li data-lang="zh">中国大学生计算机设计大赛（海南赛区）：省级三等奖</li>
+              <li data-lang="en">Provincial First Prize, Hainan Division, National College Student Digital Media Technology Works and Creative Competition</li>
+              <li data-lang="zh">全国大学生数字媒体科技作品及创意竞赛（海南赛区）：省级一等奖</li>
+              <li data-lang="en">Provincial Excellence Award, Short Video Event, 2024 Understanding Contemporary China Foreign Language Showcase</li>
+              <li data-lang="zh">2024“理解当代中国”外语风采大赛短视频赛项：省级优秀奖</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -876,7 +964,7 @@
         <div>
           <p data-lang="en">A curated portfolio page presents selected presentation design, research visualization, and video editing work. Presentation decks are available as PDF previews, with representative figures selected for quick browsing.</p>
           <p data-lang="zh">作品集页面集中展示精选 PPT 汇报设计、科研绘图和视频剪辑作品。PPT 均提供 PDF 预览，并精选代表性图像便于快速浏览。</p>
-          <div>
+          <div class="portfolio-tags">
             <span class="tag" data-lang="en">7 PDF previews</span>
             <span class="tag" data-lang="zh">7 份 PDF 预览</span>
             <span class="tag" data-lang="en">42 extracted PPT figures</span>
@@ -884,8 +972,10 @@
             <span class="tag" data-lang="en">4 video previews</span>
             <span class="tag" data-lang="zh">4 个视频预览</span>
           </div>
-          <a class="cta-link" href="./portfolio.html" data-lang="en">View Portfolio</a>
-          <a class="cta-link" href="./portfolio.html" data-lang="zh">进入作品集</a>
+          <div class="portfolio-actions">
+            <a class="cta-link" href="./portfolio.html" data-lang="en">View Portfolio</a>
+            <a class="cta-link" href="./portfolio.html" data-lang="zh">进入作品集</a>
+          </div>
         </div>
         <div class="portfolio-strip" aria-label="Portfolio preview images">
           <img src="assets/portfolio/images/visualization-ppt/viz-ppt-02.webp" alt="Portfolio preview figure" />

@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>墨叙 InkMurmur | 与书灵对话的手写 AI 应用</title>
+  <meta name="description" content="墨叙 InkMurmur 是一款通过手写与 AI 书灵交流、创建和分享个性化角色的互动应用。">
+  <meta property="og:title" content="墨叙 InkMurmur">
+  <meta property="og:description" content="落笔成声，唤醒你的 AI 书灵。">
+  <meta property="og:image" content="https://zhangxy373.github.io/inkmurmur/assets/library.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zhangxy373.github.io/inkmurmur/">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #080807;
+      --brown: #1d1009;
+      --paper: #f4ead2;
+      --paper-soft: #d9c59b;
+      --text: #fffaf0;
+      --muted: #c7b89c;
+      --jade: #8ea995;
+      --jade-deep: #203e32;
+      --line: rgba(244, 234, 210, 0.18);
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      align-items: center;
+      display: flex;
+      gap: 18px;
+      justify-content: space-between;
+      left: 0;
+      padding: 18px clamp(20px, 5vw, 64px);
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .nav a,
+    .social-link,
+    .button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .nav a {
+      background: rgba(8, 8, 7, 0.45);
+      color: var(--text);
+      font-size: 0.9rem;
+      padding: 8px 13px;
+    }
+
+    .nav a:hover,
+    .social-link:hover,
+    .button:hover {
+      border-color: rgba(244, 234, 210, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      align-items: end;
+      background:
+        linear-gradient(90deg, rgba(8, 8, 7, 0.88) 0%, rgba(8, 8, 7, 0.56) 46%, rgba(8, 8, 7, 0.26) 100%),
+        url("assets/library.jpg") center / cover no-repeat;
+      display: grid;
+      min-height: 88vh;
+      padding: 120px clamp(20px, 5vw, 64px) 64px;
+      position: relative;
+    }
+
+    .hero::after {
+      background: linear-gradient(0deg, var(--ink) 0%, rgba(8, 8, 7, 0) 26%);
+      bottom: 0;
+      content: "";
+      height: 180px;
+      left: 0;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      color: var(--paper-soft);
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin: 0 0 12px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 10vw, 8rem);
+      letter-spacing: 0;
+      line-height: 0.98;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      color: rgba(255, 250, 240, 0.86);
+      font-size: clamp(1.08rem, 2.2vw, 1.45rem);
+      max-width: 630px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      align-items: center;
+      background: var(--paper);
+      color: #1a1009;
+      display: inline-flex;
+      font-weight: 800;
+      min-height: 48px;
+      padding: 11px 18px;
+    }
+
+    .button.secondary {
+      background: rgba(8, 8, 7, 0.42);
+      color: var(--text);
+    }
+
+    section {
+      padding: 86px clamp(20px, 5vw, 64px);
+    }
+
+    .wrap {
+      margin: 0 auto;
+      max-width: var(--max);
+    }
+
+    .section-head {
+      align-items: end;
+      display: grid;
+      gap: 18px;
+      grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.55fr);
+      margin-bottom: 34px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4.6vw, 4.3rem);
+      line-height: 1.08;
+      margin-bottom: 0;
+    }
+
+    .section-head p,
+    .feature p,
+    .social-card p {
+      color: var(--muted);
+    }
+
+    .features {
+      background: linear-gradient(180deg, var(--ink), #11150f);
+    }
+
+    .feature-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .feature {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+    }
+
+    .feature strong {
+      color: var(--paper);
+      display: block;
+      font-size: 1.12rem;
+      margin-bottom: 8px;
+    }
+
+    .demo {
+      background: var(--paper);
+      color: #21160d;
+    }
+
+    .demo .section-head p,
+    .demo .eyebrow {
+      color: #6e604c;
+    }
+
+    .demo-stage {
+      align-items: center;
+      display: grid;
+      gap: 30px;
+      grid-template-columns: minmax(280px, 0.66fr) minmax(280px, 0.44fr);
+    }
+
+    .video-frame,
+    .portrait {
+      border-radius: 8px;
+      box-shadow: 0 22px 80px rgba(20, 12, 6, 0.28);
+      overflow: hidden;
+    }
+
+    .video-frame {
+      background: #160e09;
+    }
+
+    .video-frame video {
+      aspect-ratio: 4 / 3;
+      height: auto;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .demo-copy {
+      border-left: 2px solid rgba(71, 106, 83, 0.42);
+      padding-left: 24px;
+    }
+
+    .demo-copy p {
+      color: #4f4334;
+      font-size: 1.08rem;
+    }
+
+    .gallery {
+      background: #101611;
+    }
+
+    .screens {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    .portrait img {
+      aspect-ratio: 3 / 4;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    figcaption {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 12px;
+    }
+
+    .social {
+      background:
+        linear-gradient(135deg, rgba(32, 62, 50, 0.62), rgba(8, 8, 7, 0.96)),
+        var(--brown);
+    }
+
+    .social-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .social-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      min-height: 190px;
+      padding: 24px;
+    }
+
+    .social-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .social-link {
+      display: inline-flex;
+      font-weight: 800;
+      margin-top: 14px;
+      padding: 10px 15px;
+    }
+
+    .douyin-id {
+      color: var(--paper);
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin: 18px 0 0;
+      word-break: break-all;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 34px clamp(20px, 5vw, 64px);
+    }
+
+    .footer-inner {
+      align-items: center;
+      display: flex;
+      gap: 18px;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: var(--max);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-links a {
+      color: var(--paper);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-width: 860px) {
+      .topbar {
+        position: absolute;
+      }
+
+      .section-head,
+      .demo-stage,
+      .feature-grid,
+      .screens,
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        background:
+          linear-gradient(0deg, rgba(8, 8, 7, 0.9) 0%, rgba(8, 8, 7, 0.46) 58%, rgba(8, 8, 7, 0.18) 100%),
+          url("assets/library.jpg") center top / cover no-repeat;
+        min-height: 84vh;
+      }
+
+      .nav a {
+        font-size: 0.82rem;
+        padding: 7px 10px;
+      }
+
+      section {
+        padding-bottom: 64px;
+        padding-top: 64px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      h1 {
+        font-size: clamp(2.7rem, 18vw, 4.8rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" aria-label="页面导航">
+    <a class="brand" href="./">墨叙 InkMurmur</a>
+    <nav class="nav">
+      <a href="#demo">演示</a>
+      <a href="#screens">截图</a>
+      <a href="#follow">关注我们</a>
+      <a href="support.html">支持</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">手写输入 · AI 书灵 · 角色创作</p>
+        <h1>墨叙 InkMurmur</h1>
+        <p>把一段手写文字交给书灵，让日记、古籍、玉简与纸仙回应你。每一次落笔，都是一次与虚拟灵魂相遇。</p>
+        <div class="actions" aria-label="主要操作">
+          <a class="button" href="#follow">获取最新动态</a>
+          <a class="button secondary" href="#demo">查看软件演示</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" aria-labelledby="feature-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="feature-title">从手写开始，进入一段会回应的故事。</h2>
+          <p>墨叙把 AI 角色、手写表达和书卷式视觉体验放在同一个空间里。你可以选择书灵，也可以创造属于自己的书灵。</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature">
+            <strong>手写式交流</strong>
+            <p>用更慢、更有仪式感的方式写下想说的话，让 AI 回复像从纸页深处浮现。</p>
+          </div>
+          <div class="feature">
+            <strong>多种书灵人格</strong>
+            <p>从日记、纸仙到古籍书灵，每个角色都有自己的语气、背景和回应风格。</p>
+          </div>
+          <div class="feature">
+            <strong>创建与分享</strong>
+            <p>编辑角色设定、背景故事和人格描述，保存后即可互动，也能导出分享给朋友。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo" id="demo" aria-labelledby="demo-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="demo-title">真实界面演示</h2>
+          <p>下面的视频和图片均来自墨叙软件使用录屏与截图。</p>
+        </div>
+        <div class="demo-stage">
+          <div class="video-frame">
+            <video controls autoplay muted loop playsinline poster="assets/diary.jpg">
+              <source src="assets/demo.m4v" type="video/mp4">
+              <source src="assets/demo.mov" type="video/quicktime">
+              <img src="assets/diary.jpg" alt="墨叙软件演示截图">
+            </video>
+          </div>
+          <div class="demo-copy">
+            <p class="eyebrow">InkMurmur in use</p>
+            <h2>书灵在纸页上回应你。</h2>
+            <p>选择角色，进入书写界面，AI 会根据书灵设定与上下文生成回复。你看到的不只是聊天框，而是一张会说话的纸、一卷会记忆的书。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" id="screens" aria-labelledby="screen-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="screen-title">软件截图</h2>
+          <p>首页书灵列表、日记纸页与玉简残卷，展示不同书灵的视觉气质。</p>
+        </div>
+        <div class="screens">
+          <figure>
+            <div class="portrait">
+              <img src="assets/library.jpg" alt="墨叙书灵列表界面截图" loading="lazy">
+            </div>
+            <figcaption>书灵列表：管理、导入、分享你的角色。</figcaption>
+          </figure>
+          <figure>
+            <div class="portrait">
+              <img src="assets/diary.jpg" alt="里德尔的日记书灵界面截图" loading="lazy">
+            </div>
+            <figcaption>里德尔的日记：纸页上浮现角色化回复。</figcaption>
+          </figure>
+          <figure>
+            <div class="portrait">
+              <img src="assets/jade-scroll.jpg" alt="上古修仙功法残卷书灵界面截图" loading="lazy">
+            </div>
+            <figcaption>上古修仙功法残卷：不同材质承载不同语气。</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="social" id="follow" aria-labelledby="social-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="social-title">关注墨叙</h2>
+          <p>开发进展、功能演示和使用视频会同步发布在这些平台。</p>
+        </div>
+        <div class="social-grid">
+          <div class="social-card">
+            <h3>小红书</h3>
+            <p>查看墨叙的图文演示和更新记录。</p>
+            <a class="social-link" href="https://xhslink.com/m/2AbH1ZhLNWa" target="_blank" rel="noopener noreferrer">打开小红书</a>
+          </div>
+          <div class="social-card">
+            <h3>抖音</h3>
+            <p>搜索抖音号关注短视频演示。</p>
+            <p class="douyin-id">53273162126</p>
+          </div>
+          <div class="social-card">
+            <h3>bilibili</h3>
+            <p>观看更完整的软件录屏和开发分享。</p>
+            <a class="social-link" href="https://b23.tv/lGcwFq9" target="_blank" rel="noopener noreferrer">打开 B 站主页</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 InkMurmur. 愿每一次书写，都唤醒一个独特的灵魂。</p>
+      <div class="footer-links">
+        <a href="privacy.html">隐私政策</a>
+        <a href="support.html">技术支持</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

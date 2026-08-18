@@ -669,7 +669,7 @@
 
     @media (max-width: 760px) {
       .page {
-        padding: 16px 12px 38px;
+        padding: 12px 12px 38px;
       }
 
       .topbar,
@@ -679,13 +679,47 @@
       }
 
       .topbar {
+        top: 8px;
+        gap: 10px;
         margin: 0 0 16px;
+        padding: 12px;
         border-radius: 14px;
       }
 
+      .brand {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .brand::before {
+        width: 8px;
+        height: 24px;
+      }
+
       .navlinks {
-        gap: 4px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100%;
+        gap: 6px;
         margin-left: 0;
+      }
+
+      .navlinks a {
+        min-height: 36px;
+        padding: 8px 6px;
+        background: var(--wash);
+        font-size: 12px;
+        line-height: 1.15;
+        text-align: center;
+      }
+
+      .lang-switch {
+        align-self: stretch;
+      }
+
+      .lang-switch button {
+        flex: 1 1 0;
+        min-height: 36px;
       }
 
       .hero,
@@ -695,8 +729,8 @@
         grid-template-columns: 1fr;
       }
 
-      .hero,
-      section {
+      .hero {
+        gap: 18px;
         padding: 20px;
         border-radius: 18px;
       }
@@ -706,25 +740,81 @@
         border-radius: 0;
       }
 
+      section {
+        margin-top: 28px;
+        border-radius: 0;
+      }
+
+      section::before {
+        width: 72px;
+      }
+
       h1 {
         font-size: 32px;
       }
 
+      .chinese-name {
+        display: block;
+        margin-top: 4px;
+        font-size: 21px;
+      }
+
+      .subtitle {
+        margin: 12px 0 14px;
+        font-size: 16px;
+      }
+
+      .alias-line {
+        margin: -4px 0 16px;
+      }
+
       .portrait {
+        width: min(100%, 260px);
         max-height: 300px;
+        justify-self: center;
+      }
+
+      .highlights {
+        gap: 14px;
       }
 
       .contact li {
         width: 100%;
+        padding-right: 0;
         border-right: 0;
+        overflow-wrap: anywhere;
       }
 
       .date {
         white-space: normal;
       }
+
+      .portfolio-summary {
+        gap: 18px;
+      }
+
+      .portfolio-preview {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 480px) {
+      body {
+        font-size: 15px;
+      }
+
+      .page {
+        padding: 10px 10px 34px;
+      }
+
+      .topbar {
+        top: 6px;
+      }
+
+      .navlinks {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .lang-switch {
         width: 100%;
       }
@@ -734,11 +824,50 @@
       }
 
       h1 {
-        font-size: 29px;
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      h3 {
+        font-size: 17px;
+      }
+
+      .hero {
+        padding: 16px;
+        border-radius: 16px;
+      }
+
+      .portrait {
+        width: min(100%, 220px);
+        max-height: 250px;
+        border-radius: 16px;
+      }
+
+      .metric {
+        padding-left: 12px;
       }
 
       section {
         padding: 22px 0 0;
+      }
+
+      .publication-list li,
+      .entry,
+      .award-group li,
+      .award-panel > ul li {
+        padding-top: 11px;
+        padding-bottom: 11px;
+      }
+
+      .portfolio-summary {
+        padding: 18px 0 0;
+      }
+
+      .portfolio-preview {
+        gap: 6px;
       }
     }
   </style>
@@ -785,14 +914,14 @@
           <li><strong>Email:</strong> <a href="mailto:zxy17757707133@163.com">zxy17757707133@163.com</a></li>
           <li><strong>GitHub:</strong> <a href="https://github.com/Zhangxy373" target="_blank" rel="noopener">Zhangxy373</a></li>
           <li><strong>Portfolio:</strong> <a href="./portfolio.html">Selected Works</a></li>
-          <li><strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=PAEYSWMAAAAJ&hl=zh-CN&oi=sra" target="_blank" rel="noopener">24 citations, h-index 3</a></li>
+          <li><strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=PAEYSWMAAAAJ&hl=zh-CN&oi=sra" target="_blank" rel="noopener">45 citations, h-index 3</a></li>
         </ul>
         <div class="highlights">
           <div class="metric">
             <strong data-lang="en">Academic Standing</strong>
             <strong data-lang="zh">学业表现</strong>
-            <span data-lang="en">GPA 4.09/5.0; ranked 10/119, top 8%.</span>
-            <span data-lang="zh">GPA 4.09/5.0；绩点排名 10/119，前 8%。</span>
+            <span data-lang="en">GPA 4.09/5.00; ranked 9/119, top 8%.</span>
+            <span data-lang="zh">GPA 4.09/5.00；绩点排名 9/119，前 8%。</span>
           </div>
           <div class="metric">
             <strong data-lang="en">Research Output</strong>
@@ -840,8 +969,8 @@
           </div>
           <div class="date">2023.09 - Present</div>
         </div>
-        <p data-lang="en">GPA: <strong>4.09/5.0</strong>; ranking: <strong>10/119</strong>, top <strong>8%</strong>.</p>
-        <p data-lang="zh">GPA：<strong>4.09/5.0</strong>；绩点排名：<strong>10/119</strong>，前 <strong>8%</strong>。</p>
+        <p data-lang="en">GPA: <strong>4.09/5.00</strong>; ranking: <strong>9/119</strong>, top <strong>8%</strong>.</p>
+        <p data-lang="zh">GPA：<strong>4.09/5.00</strong>；绩点排名：<strong>9/119</strong>，前 <strong>8%</strong>。</p>
       </div>
     </section>
 
@@ -1089,7 +1218,7 @@
     </section>
 
     <p class="footer" data-lang="en">Last update: June 2026. Template adapted from Tengyu Ma's and Danqi Chen's academic homepage templates.</p>
-    <p class="footer" data-lang="zh">最后更新：2026 年 6 月。模板改编自 Tengyu Ma 与 Danqi Chen 的学术主页模板。</p>
+    <p class="footer" data-lang="zh">最后更新：2026 年 8 月。模板改编自 Tengyu Ma 与 Danqi Chen 的学术主页模板。</p>
   </main>
 
   <script>
